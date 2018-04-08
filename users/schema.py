@@ -35,7 +35,16 @@ class Mutation(graphene.ObjectType):
 
 class Query(graphene.ObjectType):
     '''Contains resolvers for user-related information.'''
+    me = graphene.Field(User)
     users = graphene.List(User)
+
+    def resolve_me(self, info, **kwargs):
+        '''Retrieve information about the current (logged-in) user.'''
+        user = info.context.user
+        if user.is_anonymous:
+            raise Exception('User not logged in.')
+
+        return user
 
     def resolve_users(self, info, **kwargs):
         '''Retrieve all users in the database.'''
