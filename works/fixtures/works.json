@@ -1,0 +1,34 @@
+[
+    {
+        "model": "works.work",
+        "pk": "1",
+        "fields": {
+            "title": "Road Trip Vase Set",
+            "description": "Donec lobortis justo elit, varius semper turpis facilisis in. Nulla aliquam ante nec justo scelerisque accumsan. In feugiat tincidunt nulla, non fermentum justo euismod nec. Morbi malesuada felis eu lectus laoreet molestie. Cras id erat nec elit tempus luctus. Donec porttitor elit lorem, nec condimentum massa luctus et. Donec pellentesque velit ipsum, in rutrum augue semper vel. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam sapien leo, consequat ac arcu sit amet, semper hendrerit diam. Etiam gravida quis nunc sed faucibus."
+        }
+    },
+    {
+        "model": "works.work",
+        "pk": "2",
+        "fields": {
+            "title": "Stag vs Hercules",
+            "description": "Proin dolor est, condimentum a tincidunt sit amet, accumsan et sem. In eget suscipit velit. Aliquam vel ornare nisl, et porta lorem. Etiam rutrum velit in mi dictum, sed elementum risus aliquam. Curabitur viverra sem ac nisl blandit, eget porttitor leo fringilla. Aliquam quis ipsum sit amet nulla rutrum consectetur quis ac turpis. Donec ultrices id odio posuere rhoncus. Ut et risus risus. Vestibulum venenatis vulputate diam id hendrerit. In faucibus tellus lacus, a venenatis ligula congue ac. Morbi elementum justo quis nunc euismod tempor. Aliquam eget metus eu magna suscipit ullamcorper. Praesent dolor purus, ultrices non eros tempor, posuere iaculis arcu. Pellentesque dignissim euismod neque, nec bibendum ex euismod non. Mauris ut nisi sed est euismod auctor."
+        }
+    },
+    {
+        "model": "works.work",
+        "pk": "3",
+        "fields": {
+            "title": "SC 04",
+            "description": "Pellentesque suscipit mollis libero sed ultricies. Cras ultrices diam urna, sit amet ornare arcu fringilla vel. In velit nibh, tristique in risus et, vestibulum ornare massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc auctor nisi eu purus consectetur, non sollicitudin neque vestibulum. Maecenas quis dolor diam. Aenean blandit nisl sit amet odio tincidunt, placerat sodales odio mattis. Nunc augue sapien, luctus sed fringilla a, mattis ac lectus. Integer luctus tincidunt cursus. Nullam venenatis felis augue, non pretium metus porta a. Cras iaculis tellus tortor. Donec euismod venenatis libero, ac efficitur lectus pulvinar id. Praesent eu turpis eu metus consectetur tempus nec non felis. Aliquam quis lorem pellentesque, pulvinar dolor eget, fringilla lorem. Morbi ac arcu lacus."
+        }
+    },
+    {
+        "model": "works.work",
+        "pk": "4",
+        "fields": {
+            "title": "The American Dream: God, guns, and greed",
+            "description": "Nam tristique nulla ut condimentum convallis. Nulla maximus augue sapien, ut tempus massa finibus dapibus. Quisque pellentesque fermentum massa. Integer molestie nulla leo, eget ornare metus vestibulum vitae. Nulla vehicula dui vitae orci tincidunt malesuada id eget sapien. Vestibulum aliquam vitae est at lobortis. Nulla et nulla aliquam, suscipit erat in, dignissim ante. Duis sollicitudin maximus neque, non aliquet nibh mollis in."
+        }
+    }
+]
