@@ -1,5 +1,8 @@
 import graphene
+from django.contrib.auth import get_user_model
 from graphene_django import DjangoObjectType
+
+from users.schema import User
 
 from .models import Work as WorkModel
 
@@ -11,20 +14,29 @@ class Work(DjangoObjectType):
 
 class CreateWork(graphene.Mutation):
     '''Add a new work to accessCeramics.'''
-    id = graphene.Int()
-    title = graphene.String()
-    description = graphene.String()
+    work = graphene.Field(Work)
 
     class Arguments:
-        '''Properties available when creating a work.'''
-        title = graphene.String()
+        '''Work metadata expected from the client on creation.'''
+        title = graphene.String(required=True)
         description = graphene.String()
+        creators = graphene.List(graphene.Int)
 
-    def mutate(self, info, title, description):
+    def mutate(self, info, title, description=None, creators=None):
         '''Create the work and return its information.'''
-        work = WorkModel(title=title, description=description)
+        work = WorkModel(
+            title=title,
+            description=description
+        )
         work.save()
-
+        # if a list of user ids was passed, those users will be creators
+        if creators:
+            users = [get_user_model().objects.get(pk=id) for id in creators]
+        # otherwise, assume the logged in user is the creator
+        else:
+            users = [info.context.user]
+        for user in users:
+            work.creators.add(user)
         return CreateWork(work=work)
 
 class Mutation(graphene.ObjectType):
