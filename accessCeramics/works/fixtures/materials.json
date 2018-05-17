@@ -1,0 +1,107 @@
+[
+    {
+        "model": "works.material",
+        "pk": "1",
+        "fields": {
+            "name": "porcelain"
+        }
+    },
+    {
+        "model": "works.material",
+        "pk": "2",
+        "fields": {
+            "name": "stoneware"
+        }
+    },
+    {
+        "model": "works.material",
+        "pk": "3",
+        "fields": {
+            "name": "earthenware"
+        }
+    },
+    {
+        "model": "works.material",
+        "pk": "4",
+        "fields": {
+            "name": "ceramic"
+        }
+    },
+    {
+        "model": "works.material",
+        "pk": "5",
+        "fields": {
+            "name": "mixed media"
+        }
+    },
+    {
+        "model": "works.material",
+        "pk": "6",
+        "fields": {
+            "name": "clay"
+        }
+    },
+    {
+        "model": "works.material",
+        "pk": "7",
+        "fields": {
+            "name": "wood"
+        }
+    },
+    {
+        "model": "works.material",
+        "pk": "8",
+        "fields": {
+            "name": "terracotta"
+        }
+    },
+    {
+        "model": "works.material",
+        "pk": "9",
+        "fields": {
+            "name": "steel"
+        }
+    },
+    {
+        "model": "works.material",
+        "pk": "10",
+        "fields": {
+            "name": "decal"
+        }
+    },
+    {
+        "model": "works.material",
+        "pk": "11",
+        "fields": {
+            "name": "glass"
+        }
+    },
+    {
+        "model": "works.material",
+        "pk": "12",
+        "fields": {
+            "name": "white earthenware"
+        }
+    },
+    {
+        "model": "works.material",
+        "pk": "13",
+        "fields": {
+            "name": "wire"
+        }
+    },
+    {
+        "model": "works.material",
+        "pk": "14",
+        "fields": {
+            "name": "found object"
+        }
+    },
+    {
+        "model": "works.material",
+        "pk": "15",
+        "fields": {
+            "name": "red earthenware"
+        }
+    }
+]

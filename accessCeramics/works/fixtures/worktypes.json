@@ -1,0 +1,107 @@
+[
+    {
+        "model": "works.worktype",
+        "pk": "1",
+        "fields": {
+            "name": "sculpture"
+        }
+    },
+    {
+        "model": "works.worktype",
+        "pk": "2",
+        "fields": {
+            "name": "installation"
+        }
+    },
+    {
+        "model": "works.worktype",
+        "pk": "3",
+        "fields": {
+            "name": "figurative sculpture"
+        }
+    },
+    {
+        "model": "works.worktype",
+        "pk": "4",
+        "fields": {
+            "name": "wall piece"
+        }
+    },
+    {
+        "model": "works.worktype",
+        "pk": "5",
+        "fields": {
+            "name": "vessel"
+        }
+    },
+    {
+        "model": "works.worktype",
+        "pk": "6",
+        "fields": {
+            "name": "vase"
+        }
+    },
+    {
+        "model": "works.worktype",
+        "pk": "7",
+        "fields": {
+            "name": "bowl"
+        }
+    },
+    {
+        "model": "works.worktype",
+        "pk": "8",
+        "fields": {
+            "name": "teapot"
+        }
+    },
+    {
+        "model": "works.worktype",
+        "pk": "9",
+        "fields": {
+            "name": "cup"
+        }
+    },
+    {
+        "model": "works.worktype",
+        "pk": "10",
+        "fields": {
+            "name": "plate"
+        }
+    },
+    {
+        "model": "works.worktype",
+        "pk": "11",
+        "fields": {
+            "name": "platter"
+        }
+    },
+    {
+        "model": "works.worktype",
+        "pk": "12",
+        "fields": {
+            "name": "tile"
+        }
+    },
+    {
+        "model": "works.worktype",
+        "pk": "13",
+        "fields": {
+            "name": "jar"
+        }
+    },
+    {
+        "model": "works.worktype",
+        "pk": "14",
+        "fields": {
+            "name": "pitcher"
+        }
+    },
+    {
+        "model": "works.worktype",
+        "pk": "15",
+        "fields": {
+            "name": "container"
+        }
+    }
+]

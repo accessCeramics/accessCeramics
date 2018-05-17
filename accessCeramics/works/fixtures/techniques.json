@@ -1,0 +1,212 @@
+[
+    {
+        "model": "works.technique",
+        "pk": "1",
+        "fields": {
+            "name": "handbuilding"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "2",
+        "fields": {
+            "name": "throwing"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "3",
+        "fields": {
+            "name": "slip casting"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "4",
+        "fields": {
+            "name": "throwing and altering"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "5",
+        "fields": {
+            "name": "slab method"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "6",
+        "fields": {
+            "name": "coiling"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "7",
+        "fields": {
+            "name": "press molding"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "8",
+        "fields": {
+            "name": "assemblage"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "9",
+        "fields": {
+            "name": "casting"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "10",
+        "fields": {
+            "name": "pinching"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "11",
+        "fields": {
+            "name": "altering"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "12",
+        "fields": {
+            "name": "extruding"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "13",
+        "fields": {
+            "name": "mono printing"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "14",
+        "fields": {
+            "name": "carving"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "15",
+        "fields": {
+            "name": "slip dipping"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "16",
+        "fields": {
+            "name": "glaze"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "17",
+        "fields": {
+            "name": "electric oxidation"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "18",
+        "fields": {
+            "name": "underglaze"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "19",
+        "fields": {
+            "name": "slip"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "20",
+        "fields": {
+            "name": "terra sigillata"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "21",
+        "fields": {
+            "name": "paint"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "22",
+        "fields": {
+            "name": "clear glaze"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "23",
+        "fields": {
+            "name": "low fire glaze"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "24",
+        "fields": {
+            "name": "wood firing"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "25",
+        "fields": {
+            "name": "luster glaze"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "26",
+        "fields": {
+            "name": "decal"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "27",
+        "fields": {
+            "name": "engobe"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "28",
+        "fields": {
+            "name": "colored slip"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "29",
+        "fields": {
+            "name": "stain"
+        }
+    },
+    {
+        "model": "works.technique",
+        "pk": "30",
+        "fields": {
+            "name": "maiolica"
+        }
+    }
+]
