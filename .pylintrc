@@ -1,0 +1,5 @@
+[MESSAGES CONTROL]
+disable=C0111
+
+[TYPECHECK]
+ignored-classes=QuerySet,ManyToManyField

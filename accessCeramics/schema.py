@@ -1,17 +1,17 @@
 import graphene
 import graphql_jwt
-import works.schema
-import users.schema
+import accessCeramics.works.schema as WorksSchema
+import accessCeramics.users.schema as UsersSchema
 
-class Query(works.schema.Query, users.schema.Query, graphene.ObjectType):
+class Query(WorksSchema.Query, UsersSchema.Query, graphene.ObjectType):
     '''The set of all possible queries.'''
     pass
 
-class Mutation(works.schema.Mutation, users.schema.Mutation, graphene.ObjectType):
+class Mutation(WorksSchema.Mutation, UsersSchema.Mutation, graphene.ObjectType):
     '''The set of all possible mutations.'''
     # graphql_jwt (auth) mutations
     token_auth = graphql_jwt.ObtainJSONWebToken.Field()
     verify_token = graphql_jwt.Verify.Field()
     refresh_token = graphql_jwt.Refresh.Field()
 
-schema = graphene.Schema(query=Query, mutation=Mutation)
+SCHEMA = graphene.Schema(query=Query, mutation=Mutation)

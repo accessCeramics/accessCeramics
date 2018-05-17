@@ -3,7 +3,6 @@ import graphene
 from django.contrib.auth import get_user_model
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
-from graphql.error.located_error import GraphQLLocatedError
 
 from .models import Material as MaterialModel
 from .models import Technique as TechniqueModel
@@ -87,55 +86,70 @@ class CreateWork(graphene.relay.ClientIDMutation):
 
     class Input:
         '''Work metadata provided by the client on creation.'''
-        title = graphene.String(required=True, description=WorkModel._meta.get_field('title').help_text)
-        description = graphene.String(description=WorkModel._meta.get_field('description').help_text)
-        creators = graphene.List(graphene.String, description=WorkModel._meta.get_field('creators').help_text)
-        techniques = graphene.List(graphene.String, description=WorkModel._meta.get_field('techniques').help_text)
-        materials = graphene.List(graphene.String, description=WorkModel._meta.get_field('materials').help_text)
-        work_types = graphene.List(graphene.String, description=WorkModel._meta.get_field('work_types').help_text)
+        title = graphene.String(
+            required=True,
+            description=WorkModel._meta.get_field('title').help_text)
+        description = graphene.String(
+            description=WorkModel._meta.get_field('description').help_text)
+        creators = graphene.List(
+            graphene.String,
+            description=WorkModel._meta.get_field('creators').help_text)
+        techniques = graphene.List(
+            graphene.String,
+            description=WorkModel._meta.get_field('techniques').help_text)
+        materials = graphene.List(
+            graphene.String,
+            description=WorkModel._meta.get_field('materials').help_text)
+        work_types = graphene.List(
+            graphene.String,
+            description=WorkModel._meta.get_field('work_types').help_text)
 
     @classmethod
-    def mutate_and_get_payload(cls, root, info, **input):
+    def mutate_and_get_payload(cls, _, info, **kwargs):
         '''Create the work and return its information.'''
-        
         work = WorkModel(
-            title = input['title'],
-            description = input['description']
+            title=kwargs['title'],
+            description=kwargs['description']
         )
         work.save()
 
-        # if users were specified as creators, add them
-        if 'creators' in input:
-            for creator in input['creators']:
+        if 'creators' in kwargs: # if users were specified as creators, add them
+            for creator in kwargs['creators']:
                 try:
-                    work.creators.add(get_user_model().objects.get(username=creator))
+                    work.creators.add(
+                        get_user_model().objects.get(username=creator))
                 except get_user_model().DoesNotExist:
-                    raise get_user_model().DoesNotExist(f'User matching query {creator} does not exist.')
-
-        # otherwise assume the current user is the creator
-        else:
+                    raise get_user_model().DoesNotExist(
+                        f'User matching query {creator} does not exist.')
+        else: # otherwise assume the current user is the creator
             work.creators.add(info.context.user)
 
-        if 'techniques' in input:
-            for technique in input['techniques']:
+        if 'techniques' in kwargs:
+            for technique in kwargs['techniques']:
                 try:
-                    work.techniques.add(TechniqueModel.objects.get(name=technique))
+                    work.techniques.add(
+                        TechniqueModel.objects.get(name=technique))
                 except TechniqueModel.DoesNotExist:
-                    raise TechniqueModel.DoesNotExist(f'Technique matching query {technique} does not exist.')
+                    raise TechniqueModel.DoesNotExist(
+                        f'Technique matching query {technique} does not exist.')
 
-        if 'materials' in input:
-            for material in input['materials']:
+        if 'materials' in kwargs:
+            for material in kwargs['materials']:
                 try:
-                    work.techniques.add(MaterialModel.objects.get(name=material))
+                    work.techniques.add(
+                        MaterialModel.objects.get(name=material))
                 except MaterialModel.DoesNotExist:
-                    raise MaterialModel.DoesNotExist(f'Material matching query {material} does not exist.')
+                    raise MaterialModel.DoesNotExist(
+                        f'Material matching query {material} does not exist.')
 
-        if 'work_types' in input:
-            for work_type in input['work_types']:
+        if 'work_types' in kwargs:
+            for work_type in kwargs['work_types']:
                 try:
-                    work.work_types.add(WorkTypeModel.objects.get(name=work_type))
+                    work.work_types.add(
+                        WorkTypeModel.objects.get(name=work_type))
                 except WorkTypeModel.DoesNotExist:
-                    raise WorkTypeModel.DoesNotExist(f'Work type matching query {work_type} does not exist.')
+                    raise WorkTypeModel.DoesNotExist(
+                        f'Work type matching query {work_type} does not exist.')
 
         return CreateWork(work=work)
 

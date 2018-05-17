@@ -30,7 +30,7 @@ py==1.5.3
 pyasn1==0.4.2
 pyasn1-modules==0.2.1
 PyJWT==1.6.1
-pylint==1.8.4
+pylint==1.9.1
 pylint-django==0.11
 pylint-plugin-utils==0.2.6
 pytest==3.5.0
