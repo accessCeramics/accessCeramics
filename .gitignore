@@ -1,6 +1,11 @@
 # pytest caches
 .pytest_cache
 
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
 # Compressor related static files
 static/
 CACHE/
