@@ -9,14 +9,21 @@ from measurement.measures import Temperature as TemperatureMeasure
 class Work(models.Model):
     '''A creative work exhibited in accessCeramics.'''
     # basic metadata
-    title = models.CharField(max_length=500, help_text=_('500 characters maximum.'))
-    creators = models.ManyToManyField(settings.AUTH_USER_MODEL, help_text=_('Must be an extant accessCeramics user.'))
+    title = models.CharField(max_length=500,
+                             help_text=_('500 characters maximum.'))
+    creators = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        help_text=_('Must be an extant accessCeramics user.'))
     date = models.PositiveSmallIntegerField(help_text=_('Use YYYY format.'))
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
     # additional metadata
-    description = models.TextField(null=True, blank=True, help_text=_('A description of the work or artist\'s statement.'))
-    credits = models.TextField(null=True, blank=True, help_text=_('Credit line, e.g. for photographing the work.'))
+    description = models.TextField(
+        null=True, blank=True,
+        help_text=_('A description of the work or artist\'s statement.'))
+    credits = models.TextField(
+        null=True, blank=True,
+        help_text=_('Credit line, e.g. for photographing the work.'))
     # tags
     techniques = models.ManyToManyField('Technique', blank=True)
     materials = models.ManyToManyField('Material', blank=True)

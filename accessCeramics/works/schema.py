@@ -11,28 +11,24 @@ from .models import WorkType as WorkTypeModel
 
 
 class WorkNode(DjangoObjectType):
-    '''A creative work exhibited in accessCeramics.'''
     class Meta:
         model = WorkModel
         interfaces = (graphene.relay.Node,)
 
 
 class TechniqueNode(DjangoObjectType):
-    '''An artistic technique used in the making of a work.'''
     class Meta:
         model = TechniqueModel
         interfaces = (graphene.relay.Node,)
 
 
 class MaterialNode(DjangoObjectType):
-    '''A material used in the making of a work.'''
     class Meta:
         model = MaterialModel
         interfaces = (graphene.relay.Node,)
 
 
 class WorkTypeNode(DjangoObjectType):
-    '''The type or function of a work, e.g. "vase".'''
     class Meta:
         model = WorkTypeModel
         interfaces = (graphene.relay.Node,)
@@ -105,7 +101,7 @@ class CreateWork(graphene.relay.ClientIDMutation):
             description=WorkModel._meta.get_field('work_types').help_text)
 
     @classmethod
-    def mutate_and_get_payload(cls, _, info, **kwargs):
+    def mutate_and_get_payload(cls, root, info, **kwargs):
         '''Create the work and return its information.'''
         work = WorkModel(
             title=kwargs['title'],
@@ -155,5 +151,5 @@ class CreateWork(graphene.relay.ClientIDMutation):
 
 
 class Mutation(graphene.ObjectType):
-    '''Contains functions for altering works in the database.'''
+    '''Functions for altering works in the database.'''
     create_work = CreateWork.Field()

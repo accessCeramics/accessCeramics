@@ -51,15 +51,15 @@ class CreateUser(graphene.relay.ClientIDMutation):
         last_name = graphene.String()
 
     @classmethod
-    def mutate_and_get_payload(cls, root, info, **input):
+    def mutate_and_get_payload(cls, root, info, **kwargs):
         '''Register the user and return their information.'''
         user = get_user_model()(
-            username=input['username'],
-            email=input['email'],
-            first_name=input['first_name'],
-            last_name=input['last_name']
+            username=kwargs['username'],
+            email=kwargs['email'],
+            first_name=kwargs['first_name'],
+            last_name=kwargs['last_name']
         )
-        user.set_password(input['password'])
+        user.set_password(kwargs['password'])
         user.save()
 
         return CreateUser(user=user)
