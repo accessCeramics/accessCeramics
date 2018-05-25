@@ -1,0 +1,16 @@
+language: python
+python:
+- '3.6'
+cache: pip
+install:
+- pip install -r requirements.txt
+- pip install -r dev-requirements.txt
+- pip install codecov
+- cp ci/settings.py accessCeramics/local_settings.py
+- python -c "import uuid; print('SECRET_KEY = \'%s\'' % uuid.uuid4())" >> accessCeramics/local_settings.py
+script:
+- py.test --cov=accessCeramics
+services:
+- mysql
+after_success:
+- codecov
