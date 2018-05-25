@@ -1,4 +1,5 @@
 django
 django-measurement
 django-graphql-jwt
+graphene
 graphene-django
