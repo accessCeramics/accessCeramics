@@ -7,4 +7,19 @@
 
 DEBUG = False
 
+# Test against MySQL in CI
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'test',
+        'USER': 'root',
+        'HOST': 'localhost',
+        'PORT': '',
+        'TEST': {
+                'CHARSET': 'utf8',
+                'COLLATION': 'utf8_general_ci',
+            },
+    },
+}
+
 # Secret key gets generated and added to this file by travis - see .travis.yml
