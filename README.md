@@ -4,9 +4,9 @@
 [![Requirements Status](https://requires.io/github/accessCeramics/accessCeramics/requirements.svg?branch=master)](https://requires.io/github/accessCeramics/accessCeramics/requirements/?branch=master)
 [![Code Health](https://landscape.io/github/accessCeramics/accessCeramics/master/landscape.svg?style=flat)](https://landscape.io/github/accessCeramics/accessCeramics/master)
 
-[accessCeramics](accessceramics.org) is a growing collection of contemporary ceramics images by recognized artists enhancing ceramics education worldwide.
+[accessCeramics](http://accessceramics.org) is a growing collection of contemporary ceramics images by recognized artists enhancing ceramics education worldwide.
 
-The current version is built using [django](), with source code hosted on [GitHub](github.com/accessCeramics/accessCeramics). You can also view the [code documentation](accessceramics.github.io/accessceramics).
+The current version is built using [django](), with source code hosted on [GitHub](https://github.com/accessCeramics/accessCeramics). You can also view the [code documentation](https://accessceramics.github.io/accessCeramics).
 
 ## Developing
 
