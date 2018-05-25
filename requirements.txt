@@ -34,6 +34,7 @@ pylint==1.9.1
 pylint-django==0.11
 pylint-plugin-utils==0.2.6
 pytest==3.5.0
+pytest-django==3.2.1
 pytz==2018.3
 rsa==3.4.2
 Rx==1.6.1
