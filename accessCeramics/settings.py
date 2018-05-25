@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # other plugins
     'graphene_django',
     'django_measurement',
+    'django_filters',
     # accessceramics apps
     'accessCeramics.works'
 ]
