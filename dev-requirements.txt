@@ -4,3 +4,6 @@ pylint-plugin-utils
 pytest
 pytest-django
 pytest-cov
+sphinx
+sphinx-autobuild
+doc8
