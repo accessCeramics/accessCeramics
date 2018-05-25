@@ -9,8 +9,7 @@ install:
 - cp ci/settings.py accessCeramics/local_settings.py
 - python -c "import uuid; print('SECRET_KEY = \'%s\'' % uuid.uuid4())" >> accessCeramics/local_settings.py
 script:
-- pytest --cov=accessCeramics # run the tests
-- sphinx-build -nWT -b dummy docs-src docs/html # lint the documentation
+- pytest --cov=accessCeramics
 services:
 - mysql
 after_success:
