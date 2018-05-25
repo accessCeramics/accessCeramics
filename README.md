@@ -62,7 +62,7 @@ To generate documentation:
 ```
 2. Build documentation using the `Makefile`:
 ```sh
-$ make html
+$ make docs
 ```
 Documentation source files are in the `docs-src` folder. Built documentation
 lives in the `docs` folder on master to be served via GitHub pages.
