@@ -12,9 +12,6 @@ accessCeramics documentation
 
    codedocs
 
-.. include:: ../README.rst
-   :start-after: sphinx-start-marker-do-not-remove
-
 
 Indices and tables
 ==================
