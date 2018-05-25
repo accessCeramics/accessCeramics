@@ -8,62 +8,80 @@ from measurement.measures import Temperature as TemperatureMeasure
 
 class Work(models.Model):
     '''A creative work exhibited in accessCeramics.'''
-    # basic metadata
+    #: title of the work, maximum 500 characters, required
     title = models.CharField(max_length=500,
                              help_text=_('500 characters maximum.'))
+    #: usernames of accessCeramics users who created the work, required
     creators = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
         help_text=_('Must be an extant accessCeramics user.'))
+    #: date associated with the work, YYYY format, required
     date = models.PositiveSmallIntegerField(help_text=_('Use YYYY format.'))
+    #: timestamp when work was created in the database
     created_at = models.DateTimeField(auto_now_add=True)
+    #: timestamp when work was last modified in the database
     modified_at = models.DateTimeField(auto_now=True)
-    # additional metadata
+    #: description of the work or artist's statement
     description = models.TextField(
         null=True, blank=True,
         help_text=_('A description of the work or artist\'s statement.'))
+    #: credit line for the work
     credits = models.TextField(
         null=True, blank=True,
         help_text=_('Credit line, e.g. for photographing the work.'))
-    # tags
+    #: one or many :class:`Technique` associated with the work
     techniques = models.ManyToManyField('Technique', blank=True)
+    #: one or many :class:`Material` associated with the work
     materials = models.ManyToManyField('Material', blank=True)
+    #: one or many :class:`WorkType` associated with the work
     work_types = models.ManyToManyField('WorkType', blank=True)
+    #: one or many :class:`Temperature` associated with the work
     temperatures = models.ManyToManyField('Temperature', blank=True)
-    # dimensions
+    #: a :class:`measurement.measures.Distance` representing the height of the work
     height = MeasurementField(measurement=Distance, null=True, blank=True)
+    #: a :class:`measurement.measures.Distance` representing the width of the work
     width = MeasurementField(measurement=Distance, null=True, blank=True)
+    #: a :class:`measurement.measures.Distance` representing the depth of the work
     depth = MeasurementField(measurement=Distance, null=True, blank=True)
 
     def __str__(self):
+        #: default string representation. uses :attr:`title`.
         return self.title
 
 
 class Technique(models.Model):
     '''An artistic technique used in the making of a work.'''
+    #: name of the technique
     name = models.CharField(max_length=100)
 
     def __str__(self):
+        #: default string representation. uses :attr:`name`
         return self.name
 
 
 class Material(models.Model):
     '''A material used to make a work.'''
+    #: name of the material
     name = models.CharField(max_length=100)
 
     def __str__(self):
+        #: default string representation. uses :attr:`name`
         return self.name
 
 
 class WorkType(models.Model):
     '''The type or function of a work, e.g. "vase".'''
+    #: name of the work type
     name = models.CharField(max_length=100)
 
     def __str__(self):
+        #: default string representation. uses :attr:`name`
         return self.name
 
 
 class Temperature(models.Model):
     '''Previous temperature of the work, e.g. when fired in a kiln.'''
+    #: a :class:`measurement.measures.Temperature` of the work
     value = MeasurementField(measurement=TemperatureMeasure)
 
     CONE_VALUES = {
@@ -121,4 +139,5 @@ class Temperature(models.Model):
     #     return before
 
     def __str__(self):
+        #: default string representation. uses :attr:`value`
         return self.value
