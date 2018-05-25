@@ -1,0 +1,305 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>accessCeramics.works.schema &#8212; accessCeramics 0.1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for accessCeramics.works.schema</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">django_filters</span>
+<span class="kn">import</span> <span class="nn">graphene</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="k">import</span> <span class="n">get_user_model</span>
+<span class="kn">from</span> <span class="nn">django.core.exceptions</span> <span class="k">import</span> <span class="n">ValidationError</span>
+<span class="kn">from</span> <span class="nn">graphene_django</span> <span class="k">import</span> <span class="n">DjangoObjectType</span>
+<span class="kn">from</span> <span class="nn">graphene_django.filter</span> <span class="k">import</span> <span class="n">DjangoFilterConnectionField</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="k">import</span> <span class="n">Material</span> <span class="k">as</span> <span class="n">MaterialModel</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="k">import</span> <span class="n">Technique</span> <span class="k">as</span> <span class="n">TechniqueModel</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="k">import</span> <span class="n">Work</span> <span class="k">as</span> <span class="n">WorkModel</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="k">import</span> <span class="n">WorkType</span> <span class="k">as</span> <span class="n">WorkTypeModel</span>
+
+
+<div class="viewcode-block" id="WorkNode"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.schema.WorkNode">[docs]</a><span class="k">class</span> <span class="nc">WorkNode</span><span class="p">(</span><span class="n">DjangoObjectType</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">WorkModel</span>
+        <span class="n">interfaces</span> <span class="o">=</span> <span class="p">(</span><span class="n">graphene</span><span class="o">.</span><span class="n">relay</span><span class="o">.</span><span class="n">Node</span><span class="p">,)</span></div>
+
+
+<div class="viewcode-block" id="TechniqueNode"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.schema.TechniqueNode">[docs]</a><span class="k">class</span> <span class="nc">TechniqueNode</span><span class="p">(</span><span class="n">DjangoObjectType</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">TechniqueModel</span>
+        <span class="n">interfaces</span> <span class="o">=</span> <span class="p">(</span><span class="n">graphene</span><span class="o">.</span><span class="n">relay</span><span class="o">.</span><span class="n">Node</span><span class="p">,)</span></div>
+
+
+<div class="viewcode-block" id="MaterialNode"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.schema.MaterialNode">[docs]</a><span class="k">class</span> <span class="nc">MaterialNode</span><span class="p">(</span><span class="n">DjangoObjectType</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">MaterialModel</span>
+        <span class="n">interfaces</span> <span class="o">=</span> <span class="p">(</span><span class="n">graphene</span><span class="o">.</span><span class="n">relay</span><span class="o">.</span><span class="n">Node</span><span class="p">,)</span></div>
+
+
+<div class="viewcode-block" id="WorkTypeNode"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.schema.WorkTypeNode">[docs]</a><span class="k">class</span> <span class="nc">WorkTypeNode</span><span class="p">(</span><span class="n">DjangoObjectType</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">WorkTypeModel</span>
+        <span class="n">interfaces</span> <span class="o">=</span> <span class="p">(</span><span class="n">graphene</span><span class="o">.</span><span class="n">relay</span><span class="o">.</span><span class="n">Node</span><span class="p">,)</span></div>
+
+
+<div class="viewcode-block" id="WorkFilter"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.schema.WorkFilter">[docs]</a><span class="k">class</span> <span class="nc">WorkFilter</span><span class="p">(</span><span class="n">django_filters</span><span class="o">.</span><span class="n">FilterSet</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Filtering options available for works.&#39;&#39;&#39;</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">WorkModel</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="TechniqueFilter"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.schema.TechniqueFilter">[docs]</a><span class="k">class</span> <span class="nc">TechniqueFilter</span><span class="p">(</span><span class="n">django_filters</span><span class="o">.</span><span class="n">FilterSet</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Filtering options available for techniques.&#39;&#39;&#39;</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">TechniqueModel</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="MaterialFilter"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.schema.MaterialFilter">[docs]</a><span class="k">class</span> <span class="nc">MaterialFilter</span><span class="p">(</span><span class="n">django_filters</span><span class="o">.</span><span class="n">FilterSet</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Filtering options available for materials.&#39;&#39;&#39;</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">MaterialModel</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="WorkTypeFilter"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.schema.WorkTypeFilter">[docs]</a><span class="k">class</span> <span class="nc">WorkTypeFilter</span><span class="p">(</span><span class="n">django_filters</span><span class="o">.</span><span class="n">FilterSet</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Filtering options available for work types.&#39;&#39;&#39;</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">WorkTypeModel</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="Query"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.schema.Query">[docs]</a><span class="k">class</span> <span class="nc">Query</span><span class="p">(</span><span class="n">graphene</span><span class="o">.</span><span class="n">ObjectType</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Resolvers for work-related information.&#39;&#39;&#39;</span>
+    <span class="c1"># single</span>
+    <span class="n">work</span> <span class="o">=</span> <span class="n">graphene</span><span class="o">.</span><span class="n">relay</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">WorkNode</span><span class="p">)</span>
+    <span class="n">technique</span> <span class="o">=</span> <span class="n">graphene</span><span class="o">.</span><span class="n">relay</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">TechniqueNode</span><span class="p">)</span>
+    <span class="n">material</span> <span class="o">=</span> <span class="n">graphene</span><span class="o">.</span><span class="n">relay</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">MaterialNode</span><span class="p">)</span>
+    <span class="n">workType</span> <span class="o">=</span> <span class="n">graphene</span><span class="o">.</span><span class="n">relay</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">WorkTypeNode</span><span class="p">)</span>
+    <span class="c1"># filtered set</span>
+    <span class="n">works</span> <span class="o">=</span> <span class="n">DjangoFilterConnectionField</span><span class="p">(</span><span class="n">WorkNode</span><span class="p">,</span> <span class="n">filterset_class</span><span class="o">=</span><span class="n">WorkFilter</span><span class="p">)</span>
+    <span class="n">techniques</span> <span class="o">=</span> <span class="n">DjangoFilterConnectionField</span><span class="p">(</span><span class="n">TechniqueNode</span><span class="p">,</span> <span class="n">filterset_class</span><span class="o">=</span><span class="n">TechniqueFilter</span><span class="p">)</span>
+    <span class="n">materials</span> <span class="o">=</span> <span class="n">DjangoFilterConnectionField</span><span class="p">(</span><span class="n">MaterialNode</span><span class="p">,</span> <span class="n">filterset_class</span><span class="o">=</span><span class="n">MaterialFilter</span><span class="p">)</span>
+    <span class="n">workTypes</span> <span class="o">=</span> <span class="n">DjangoFilterConnectionField</span><span class="p">(</span><span class="n">WorkTypeNode</span><span class="p">,</span> <span class="n">filterset_class</span><span class="o">=</span><span class="n">WorkTypeFilter</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CreateWork"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.schema.CreateWork">[docs]</a><span class="k">class</span> <span class="nc">CreateWork</span><span class="p">(</span><span class="n">graphene</span><span class="o">.</span><span class="n">relay</span><span class="o">.</span><span class="n">ClientIDMutation</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Add a new work to accessCeramics.&#39;&#39;&#39;</span>
+    <span class="n">work</span> <span class="o">=</span> <span class="n">graphene</span><span class="o">.</span><span class="n">Field</span><span class="p">(</span><span class="n">WorkNode</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">Input</span><span class="p">:</span>
+        <span class="sd">&#39;&#39;&#39;Work metadata provided by the client on creation.&#39;&#39;&#39;</span>
+        <span class="c1"># basic metadata</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">graphene</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+            <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">WorkModel</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">help_text</span><span class="p">)</span>
+        <span class="n">creators</span> <span class="o">=</span> <span class="n">graphene</span><span class="o">.</span><span class="n">List</span><span class="p">(</span>
+            <span class="n">graphene</span><span class="o">.</span><span class="n">String</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">WorkModel</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="s1">&#39;creators&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">help_text</span><span class="p">)</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">graphene</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span>
+            <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">WorkModel</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">help_text</span><span class="p">)</span>
+        <span class="c1"># additional metadata</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="n">graphene</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">WorkModel</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">help_text</span><span class="p">)</span>
+        <span class="n">credits</span> <span class="o">=</span> <span class="n">graphene</span><span class="o">.</span><span class="n">String</span><span class="p">(</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">WorkModel</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="s1">&#39;credits&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">help_text</span><span class="p">)</span>
+        <span class="c1"># tags</span>
+        <span class="n">techniques</span> <span class="o">=</span> <span class="n">graphene</span><span class="o">.</span><span class="n">List</span><span class="p">(</span>
+            <span class="n">graphene</span><span class="o">.</span><span class="n">String</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">WorkModel</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="s1">&#39;techniques&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">help_text</span><span class="p">)</span>
+        <span class="n">materials</span> <span class="o">=</span> <span class="n">graphene</span><span class="o">.</span><span class="n">List</span><span class="p">(</span>
+            <span class="n">graphene</span><span class="o">.</span><span class="n">String</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">WorkModel</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="s1">&#39;materials&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">help_text</span><span class="p">)</span>
+        <span class="n">work_types</span> <span class="o">=</span> <span class="n">graphene</span><span class="o">.</span><span class="n">List</span><span class="p">(</span>
+            <span class="n">graphene</span><span class="o">.</span><span class="n">String</span><span class="p">,</span>
+            <span class="n">description</span><span class="o">=</span><span class="n">WorkModel</span><span class="o">.</span><span class="n">_meta</span><span class="o">.</span><span class="n">get_field</span><span class="p">(</span><span class="s1">&#39;work_types&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">help_text</span><span class="p">)</span>
+        <span class="c1"># TODO implement temperature ?</span>
+        <span class="c1"># TODO implement measurements</span>
+
+
+<div class="viewcode-block" id="CreateWork.mutate_and_get_payload"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.schema.CreateWork.mutate_and_get_payload">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">mutate_and_get_payload</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">info</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Create the work and return its information.&#39;&#39;&#39;</span>
+        <span class="n">work</span> <span class="o">=</span> <span class="n">WorkModel</span><span class="p">(</span>
+            <span class="n">title</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">],</span>
+            <span class="n">date</span><span class="o">=</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;description&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">work</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;credits&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">work</span><span class="o">.</span><span class="n">credits</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;credits&#39;</span><span class="p">]</span>
+        <span class="n">work</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="s1">&#39;creators&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="c1"># if users were specified as creators, add them</span>
+            <span class="k">for</span> <span class="n">creator</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;creators&#39;</span><span class="p">]:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">work</span><span class="o">.</span><span class="n">creators</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+                        <span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">creator</span><span class="p">))</span>
+                <span class="k">except</span> <span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">(</span>
+                        <span class="c1"># raise a more useful error indicating which user failed</span>
+                        <span class="n">f</span><span class="s1">&#39;User matching query </span><span class="si">{creator}</span><span class="s1"> does not exist.&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">):</span>
+            <span class="c1"># otherwise assume the current user is the creator</span>
+            <span class="n">work</span><span class="o">.</span><span class="n">creators</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># if the request was anonymous and no user supplied, raise an error</span>
+            <span class="k">raise</span> <span class="n">ValidationError</span><span class="p">(</span><span class="s1">&#39;Creator username is required.&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s1">&#39;techniques&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">technique</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;techniques&#39;</span><span class="p">]:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">work</span><span class="o">.</span><span class="n">techniques</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+                        <span class="n">TechniqueModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">technique</span><span class="p">))</span>
+                <span class="k">except</span> <span class="n">TechniqueModel</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">TechniqueModel</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">(</span>
+                        <span class="n">f</span><span class="s1">&#39;Technique matching query </span><span class="si">{technique}</span><span class="s1"> does not exist.&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s1">&#39;materials&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">material</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;materials&#39;</span><span class="p">]:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">work</span><span class="o">.</span><span class="n">materials</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+                        <span class="n">MaterialModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">material</span><span class="p">))</span>
+                <span class="k">except</span> <span class="n">MaterialModel</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">MaterialModel</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">(</span>
+                        <span class="n">f</span><span class="s1">&#39;Material matching query </span><span class="si">{material}</span><span class="s1"> does not exist.&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s1">&#39;work_types&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">work_type</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;work_types&#39;</span><span class="p">]:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">work</span><span class="o">.</span><span class="n">work_types</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
+                        <span class="n">WorkTypeModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">work_type</span><span class="p">))</span>
+                <span class="k">except</span> <span class="n">WorkTypeModel</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">WorkTypeModel</span><span class="o">.</span><span class="n">DoesNotExist</span><span class="p">(</span>
+                        <span class="n">f</span><span class="s1">&#39;Work type matching query </span><span class="si">{work_type}</span><span class="s1"> does not exist.&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">CreateWork</span><span class="p">(</span><span class="n">work</span><span class="o">=</span><span class="n">work</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Mutation"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.schema.Mutation">[docs]</a><span class="k">class</span> <span class="nc">Mutation</span><span class="p">(</span><span class="n">graphene</span><span class="o">.</span><span class="n">ObjectType</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Functions for altering works in the database.&#39;&#39;&#39;</span>
+    <span class="n">create_work</span> <span class="o">=</span> <span class="n">CreateWork</span><span class="o">.</span><span class="n">Field</span><span class="p">()</span></div>
+
+<span class="n">SCHEMA</span> <span class="o">=</span> <span class="n">graphene</span><span class="o">.</span><span class="n">Schema</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="n">Query</span><span class="p">,</span> <span class="n">mutation</span><span class="o">=</span><span class="n">Mutation</span><span class="p">)</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">accessCeramics</a></h1>
+
+
+
+<p class="blurb">a contemporary ceramics image resource on the web.</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=accessCeramics&repo=accessCeramics&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+    
+
+<p>
+<a href="https://travis-ci.org/accessCeramics/accessCeramics">
+    <img
+        alt="https://secure.travis-ci.org/accessCeramics/accessCeramics.svg?branch=master"
+        src="https://secure.travis-ci.org/accessCeramics/accessCeramics.svg?branch=master"
+    />
+</a>
+</p>
+
+
+
+
+    
+
+<p>
+<a href="https://codecov.io/github/accessCeramics/accessCeramics">
+    <img
+    alt="https://codecov.io/github/accessCeramics/accessCeramics/coverage.svg?branch=master"
+    src="https://codecov.io/github/accessCeramics/accessCeramics/coverage.svg?branch=master"
+    />
+</a>
+</p>
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../codedocs.html">Code Documentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Watzek Library Digital Initiatives.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
