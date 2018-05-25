@@ -1,6 +1,7 @@
 import django_filters
 import graphene
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 
@@ -82,14 +83,22 @@ class CreateWork(graphene.relay.ClientIDMutation):
 
     class Input:
         '''Work metadata provided by the client on creation.'''
+        # basic metadata
         title = graphene.String(
             required=True,
             description=WorkModel._meta.get_field('title').help_text)
-        description = graphene.String(
-            description=WorkModel._meta.get_field('description').help_text)
         creators = graphene.List(
             graphene.String,
             description=WorkModel._meta.get_field('creators').help_text)
+        date = graphene.Int(
+            required=True,
+            description=WorkModel._meta.get_field('date').help_text)
+        # additional metadata
+        description = graphene.String(
+            description=WorkModel._meta.get_field('description').help_text)
+        credits = graphene.String(
+            description=WorkModel._meta.get_field('credits').help_text)
+        # tags
         techniques = graphene.List(
             graphene.String,
             description=WorkModel._meta.get_field('techniques').help_text)
@@ -99,26 +108,39 @@ class CreateWork(graphene.relay.ClientIDMutation):
         work_types = graphene.List(
             graphene.String,
             description=WorkModel._meta.get_field('work_types').help_text)
+        # TODO implement temperature ?
+        # TODO implement measurements
+
 
     @classmethod
     def mutate_and_get_payload(cls, root, info, **kwargs):
         '''Create the work and return its information.'''
         work = WorkModel(
             title=kwargs['title'],
-            description=kwargs['description']
+            date=kwargs['date']
         )
+        if 'description' in kwargs:
+            work.description = kwargs['description']
+        if 'credits' in kwargs:
+            work.credits = kwargs['credits']
         work.save()
 
-        if 'creators' in kwargs: # if users were specified as creators, add them
+        if 'creators' in kwargs:
+            # if users were specified as creators, add them
             for creator in kwargs['creators']:
                 try:
                     work.creators.add(
                         get_user_model().objects.get(username=creator))
                 except get_user_model().DoesNotExist:
                     raise get_user_model().DoesNotExist(
+                        # raise a more useful error indicating which user failed
                         f'User matching query {creator} does not exist.')
-        else: # otherwise assume the current user is the creator
+        elif hasattr(info.context, 'user'):
+            # otherwise assume the current user is the creator
             work.creators.add(info.context.user)
+        else:
+            # if the request was anonymous and no user supplied, raise an error
+            raise ValidationError('Creator username is required.')
 
         if 'techniques' in kwargs:
             for technique in kwargs['techniques']:
@@ -132,7 +154,7 @@ class CreateWork(graphene.relay.ClientIDMutation):
         if 'materials' in kwargs:
             for material in kwargs['materials']:
                 try:
-                    work.techniques.add(
+                    work.materials.add(
                         MaterialModel.objects.get(name=material))
                 except MaterialModel.DoesNotExist:
                     raise MaterialModel.DoesNotExist(
@@ -153,3 +175,5 @@ class CreateWork(graphene.relay.ClientIDMutation):
 class Mutation(graphene.ObjectType):
     '''Functions for altering works in the database.'''
     create_work = CreateWork.Field()
+
+SCHEMA = graphene.Schema(query=Query, mutation=Mutation)

@@ -68,3 +68,6 @@ class CreateUser(graphene.relay.ClientIDMutation):
 class Mutation(graphene.ObjectType):
     '''Contains functions for altering users in the database.'''
     create_user = CreateUser.Field()
+
+
+SCHEMA = graphene.Schema(query=Query, mutation=Mutation)

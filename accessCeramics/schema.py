@@ -1,7 +1,7 @@
 import graphene
 import graphql_jwt
-import accessCeramics.works.schema as WorksSchema
-import accessCeramics.users.schema as UsersSchema
+from accessCeramics.works.schema import SCHEMA as WorksSchema
+from accessCeramics.users.schema import SCHEMA as UsersSchema
 
 class Query(WorksSchema.Query, UsersSchema.Query, graphene.ObjectType):
     '''The set of all possible queries.'''

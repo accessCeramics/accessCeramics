@@ -130,7 +130,7 @@ STATIC_URL = '/static/'
 # http://docs.graphene-python.org/en/latest/
 
 GRAPHENE = {
-    'SCHEMA': 'accessCeramics.schema.schema'
+    'SCHEMA': 'accessCeramics.schema.SCHEMA'
 }
 
 # JWT Authentication
