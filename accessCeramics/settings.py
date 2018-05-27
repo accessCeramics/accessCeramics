@@ -39,9 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # other plugins
-    'graphene_django',
     'django_measurement',
-    'django_filters',
     # accessceramics apps
     'accessCeramics.works'
 ]
@@ -52,7 +50,6 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'graphql_jwt.middleware.JSONWebTokenMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -127,15 +124,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Graphene
-# http://docs.graphene-python.org/en/latest/
-
-GRAPHENE = {
-    'SCHEMA': 'accessCeramics.schema.SCHEMA'
-}
-
-# JWT Authentication
+# Authentication
+# https://docs.djangoproject.com/en/2.0/topics/auth/
 AUTHENTICATION_BACKENDS = [
-    'graphql_jwt.backends.JSONWebTokenBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]

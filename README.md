@@ -33,17 +33,20 @@ $ source venv/bin/activate
 ```sh
 (venv) $ python manage.py migrate
 ```
-5. Run a development server:
+5. Create a superuser account for testing:
+```sh
+(venv) $ python manage.py createsuperuser
+```
+6. Run a development server:
 ```sh
 (venv) $ python manage.py runserver
 ```
-The project will be served at <http://localhost:8000/> by default.
+The project will be served at <http://localhost:8000/> by default. You can view
+the admin backend at <http://localhost:8000/admin>.
 
 ### Testing
 
-Unit tests are written with [pytest](http://doc.pytest.org/) but use
-Django fixture loading and convenience testing methods when that makes
-things easier. To run them:
+Unit tests are written with [pytest](http://doc.pytest.org/). To run them:
 1. Ensure development requirements are installed:
 ```sh
 (venv) $ pip install -r dev-requirements.txt
