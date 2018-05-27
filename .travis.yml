@@ -14,3 +14,5 @@ services:
 - mysql
 after_success:
 - codecov
+notifications:
+  email: false
