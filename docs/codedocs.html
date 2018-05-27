@@ -106,6 +106,12 @@
 <dt id="accessCeramics.works.models.Work">
 <em class="property">class </em><code class="descclassname">accessCeramics.works.models.</code><code class="descname">Work</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/models.html#Work"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.models.Work" title="Permalink to this definition">¶</a></dt>
 <dd><p>A creative work exhibited in accessCeramics.</p>
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.DISTANCE_CHOICES">
+<code class="descname">DISTANCE_CHOICES</code><em class="property"> = (('m', 'm'), ('cm', 'cm'), ('in', 'in'), ('ft', 'ft'))</em><a class="headerlink" href="#accessCeramics.works.models.Work.DISTANCE_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of available units for height/width/depth measurements</p>
+</dd></dl>
+
 <dl class="exception">
 <dt id="accessCeramics.works.models.Work.DoesNotExist">
 <em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#accessCeramics.works.models.Work.DoesNotExist" title="Permalink to this definition">¶</a></dt>
@@ -224,83 +230,6 @@
 
 </dd></dl>
 
-<span class="target" id="module-accessCeramics.works.views"></span><div class="section" id="module-accessCeramics.works.schema">
-<span id="graphql"></span><h3>graphQL<a class="headerlink" href="#module-accessCeramics.works.schema" title="Permalink to this headline">¶</a></h3>
-<dl class="class">
-<dt id="accessCeramics.works.schema.CreateWork">
-<em class="property">class </em><code class="descclassname">accessCeramics.works.schema.</code><code class="descname">CreateWork</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/schema.html#CreateWork"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.schema.CreateWork" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a new work to accessCeramics.</p>
-<dl class="attribute">
-<dt id="accessCeramics.works.schema.CreateWork.Input">
-<code class="descname">Input</code><a class="headerlink" href="#accessCeramics.works.schema.CreateWork.Input" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">graphene.relay.mutation.CreateWorkInput</span></code></p>
-</dd></dl>
-
-<dl class="classmethod">
-<dt id="accessCeramics.works.schema.CreateWork.mutate_and_get_payload">
-<em class="property">classmethod </em><code class="descname">mutate_and_get_payload</code><span class="sig-paren">(</span><em>root</em>, <em>info</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/schema.html#CreateWork.mutate_and_get_payload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.schema.CreateWork.mutate_and_get_payload" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create the work and return its information.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="accessCeramics.works.schema.MaterialFilter">
-<em class="property">class </em><code class="descclassname">accessCeramics.works.schema.</code><code class="descname">MaterialFilter</code><span class="sig-paren">(</span><em>data=None</em>, <em>queryset=None</em>, <em>prefix=None</em>, <em>strict=None</em>, <em>request=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/schema.html#MaterialFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.schema.MaterialFilter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Filtering options available for materials.</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="accessCeramics.works.schema.MaterialNode">
-<em class="property">class </em><code class="descclassname">accessCeramics.works.schema.</code><code class="descname">MaterialNode</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/schema.html#MaterialNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.schema.MaterialNode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="accessCeramics.works.schema.Mutation">
-<em class="property">class </em><code class="descclassname">accessCeramics.works.schema.</code><code class="descname">Mutation</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/schema.html#Mutation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.schema.Mutation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Functions for altering works in the database.</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="accessCeramics.works.schema.Query">
-<em class="property">class </em><code class="descclassname">accessCeramics.works.schema.</code><code class="descname">Query</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/schema.html#Query"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.schema.Query" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resolvers for work-related information.</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="accessCeramics.works.schema.TechniqueFilter">
-<em class="property">class </em><code class="descclassname">accessCeramics.works.schema.</code><code class="descname">TechniqueFilter</code><span class="sig-paren">(</span><em>data=None</em>, <em>queryset=None</em>, <em>prefix=None</em>, <em>strict=None</em>, <em>request=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/schema.html#TechniqueFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.schema.TechniqueFilter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Filtering options available for techniques.</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="accessCeramics.works.schema.TechniqueNode">
-<em class="property">class </em><code class="descclassname">accessCeramics.works.schema.</code><code class="descname">TechniqueNode</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/schema.html#TechniqueNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.schema.TechniqueNode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="accessCeramics.works.schema.WorkFilter">
-<em class="property">class </em><code class="descclassname">accessCeramics.works.schema.</code><code class="descname">WorkFilter</code><span class="sig-paren">(</span><em>data=None</em>, <em>queryset=None</em>, <em>prefix=None</em>, <em>strict=None</em>, <em>request=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/schema.html#WorkFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.schema.WorkFilter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Filtering options available for works.</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="accessCeramics.works.schema.WorkNode">
-<em class="property">class </em><code class="descclassname">accessCeramics.works.schema.</code><code class="descname">WorkNode</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/schema.html#WorkNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.schema.WorkNode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="accessCeramics.works.schema.WorkTypeFilter">
-<em class="property">class </em><code class="descclassname">accessCeramics.works.schema.</code><code class="descname">WorkTypeFilter</code><span class="sig-paren">(</span><em>data=None</em>, <em>queryset=None</em>, <em>prefix=None</em>, <em>strict=None</em>, <em>request=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/schema.html#WorkTypeFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.schema.WorkTypeFilter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Filtering options available for work types.</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="accessCeramics.works.schema.WorkTypeNode">
-<em class="property">class </em><code class="descclassname">accessCeramics.works.schema.</code><code class="descname">WorkTypeNode</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/schema.html#WorkTypeNode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.schema.WorkTypeNode" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</div>
 </div>
 </div>
 

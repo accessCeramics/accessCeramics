@@ -8,13 +8,3 @@ Works
 -------
 .. automodule:: accessCeramics.works.models
     :members:
-
-.. automodule:: accessCeramics.works.views
-    :members:
-
-graphQL
-^^^^^^^
-.. automodule:: accessCeramics.works.schema
-    :members:
-
-
