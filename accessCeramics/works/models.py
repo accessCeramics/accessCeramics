@@ -8,6 +8,14 @@ from measurement.measures import Temperature as TemperatureMeasure
 
 class Work(models.Model):
     '''A creative work exhibited in accessCeramics.'''
+    #: list of available units for height/width/depth measurements
+    DISTANCE_CHOICES = (
+        ('m', 'm'),
+        ('cm', 'cm'),
+        ('in', 'in'),
+        ('ft', 'ft')
+    )
+    
     #: title of the work, maximum 500 characters, required
     title = models.CharField(max_length=500,
                              help_text=_('500 characters maximum.'))
@@ -38,11 +46,14 @@ class Work(models.Model):
     #: one or many :class:`Temperature` associated with the work
     temperatures = models.ManyToManyField('Temperature', blank=True)
     #: a :class:`measurement.measures.Distance` representing the height of the work
-    height = MeasurementField(measurement=Distance, null=True, blank=True)
+    height = MeasurementField(measurement=Distance, null=True, blank=True,
+                              unit_choices=DISTANCE_CHOICES)
     #: a :class:`measurement.measures.Distance` representing the width of the work
-    width = MeasurementField(measurement=Distance, null=True, blank=True)
+    width = MeasurementField(measurement=Distance, null=True, blank=True,
+                             unit_choices=DISTANCE_CHOICES)
     #: a :class:`measurement.measures.Distance` representing the depth of the work
-    depth = MeasurementField(measurement=Distance, null=True, blank=True)
+    depth = MeasurementField(measurement=Distance, null=True, blank=True,
+                             unit_choices=DISTANCE_CHOICES)
 
     def __str__(self):
         #: default string representation. uses :attr:`title`.
