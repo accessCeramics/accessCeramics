@@ -1,16 +1,15 @@
 .. accessCeramics documentation master file, created by
-   sphinx-quickstart on Fri May 25 13:34:23 2018.
+   sphinx-quickstart on Mon May 28 14:37:29 2018.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-accessCeramics documentation
+Welcome to accessCeramics's documentation!
 ==========================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   codedocs
 
 
 Indices and tables
