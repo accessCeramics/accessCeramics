@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Code Documentation &mdash; accessCeramics 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Architecture" href="architecture.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> accessCeramics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-accessCeramics.works.models">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-accessCeramics.works.views">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#forms">Forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#manage-commands">Manage Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-accessCeramics.works.management.commands.import_works">Works Import</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">accessCeramics</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Code Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/codedocs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="code-documentation">
+<h1>Code Documentation<a class="headerlink" href="#code-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-accessCeramics.works.models">
+<span id="models"></span><h2>Models<a class="headerlink" href="#module-accessCeramics.works.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="accessCeramics.works.models.Material">
+<em class="property">class </em><code class="descclassname">accessCeramics.works.models.</code><code class="descname">Material</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/models.html#Material"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.models.Material" title="Permalink to this definition">¶</a></dt>
+<dd><p>A material used to make a work.</p>
+<dl class="exception">
+<dt id="accessCeramics.works.models.Material.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#accessCeramics.works.models.Material.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="accessCeramics.works.models.Material.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#accessCeramics.works.models.Material.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Material.name">
+<code class="descname">name</code><a class="headerlink" href="#accessCeramics.works.models.Material.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of the material</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="accessCeramics.works.models.Technique">
+<em class="property">class </em><code class="descclassname">accessCeramics.works.models.</code><code class="descname">Technique</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/models.html#Technique"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.models.Technique" title="Permalink to this definition">¶</a></dt>
+<dd><p>An artistic technique used in the making of a work.</p>
+<dl class="exception">
+<dt id="accessCeramics.works.models.Technique.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#accessCeramics.works.models.Technique.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="accessCeramics.works.models.Technique.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#accessCeramics.works.models.Technique.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Technique.name">
+<code class="descname">name</code><a class="headerlink" href="#accessCeramics.works.models.Technique.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of the technique</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="accessCeramics.works.models.Temperature">
+<em class="property">class </em><code class="descclassname">accessCeramics.works.models.</code><code class="descname">Temperature</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/models.html#Temperature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.models.Temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Previous temperature of the work, e.g. when fired in a kiln.</p>
+<dl class="exception">
+<dt id="accessCeramics.works.models.Temperature.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#accessCeramics.works.models.Temperature.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="accessCeramics.works.models.Temperature.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#accessCeramics.works.models.Temperature.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Temperature.value">
+<code class="descname">value</code><a class="headerlink" href="#accessCeramics.works.models.Temperature.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">measurement.measures.Temperature</span></code> of the work</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="accessCeramics.works.models.Work">
+<em class="property">class </em><code class="descclassname">accessCeramics.works.models.</code><code class="descname">Work</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/models.html#Work"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.models.Work" title="Permalink to this definition">¶</a></dt>
+<dd><p>A creative work exhibited in accessCeramics.</p>
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.DISTANCE_CHOICES">
+<code class="descname">DISTANCE_CHOICES</code><em class="property"> = (('m', 'm'), ('cm', 'cm'), ('in', 'in'), ('ft', 'ft'))</em><a class="headerlink" href="#accessCeramics.works.models.Work.DISTANCE_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of available units for height/width/depth measurements</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="accessCeramics.works.models.Work.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#accessCeramics.works.models.Work.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="accessCeramics.works.models.Work.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#accessCeramics.works.models.Work.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.created_at">
+<code class="descname">created_at</code><a class="headerlink" href="#accessCeramics.works.models.Work.created_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>timestamp when work was created in the database</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.creators">
+<code class="descname">creators</code><a class="headerlink" href="#accessCeramics.works.models.Work.creators" title="Permalink to this definition">¶</a></dt>
+<dd><p>usernames of accessCeramics users who created the work, required</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.credits">
+<code class="descname">credits</code><a class="headerlink" href="#accessCeramics.works.models.Work.credits" title="Permalink to this definition">¶</a></dt>
+<dd><p>credit line for the work</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.date">
+<code class="descname">date</code><a class="headerlink" href="#accessCeramics.works.models.Work.date" title="Permalink to this definition">¶</a></dt>
+<dd><p>date associated with the work, YYYY format, required</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.depth">
+<code class="descname">depth</code><a class="headerlink" href="#accessCeramics.works.models.Work.depth" title="Permalink to this definition">¶</a></dt>
+<dd><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">measurement.measures.Distance</span></code> representing the depth of the work</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.description">
+<code class="descname">description</code><a class="headerlink" href="#accessCeramics.works.models.Work.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>description of the work or artist’s statement</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.height">
+<code class="descname">height</code><a class="headerlink" href="#accessCeramics.works.models.Work.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">measurement.measures.Distance</span></code> representing the height of the work</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.materials">
+<code class="descname">materials</code><a class="headerlink" href="#accessCeramics.works.models.Work.materials" title="Permalink to this definition">¶</a></dt>
+<dd><p>one or many <a class="reference internal" href="#accessCeramics.works.models.Material" title="accessCeramics.works.models.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">Material</span></code></a> associated with the work</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.modified_at">
+<code class="descname">modified_at</code><a class="headerlink" href="#accessCeramics.works.models.Work.modified_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>timestamp when work was last modified in the database</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.techniques">
+<code class="descname">techniques</code><a class="headerlink" href="#accessCeramics.works.models.Work.techniques" title="Permalink to this definition">¶</a></dt>
+<dd><p>one or many <a class="reference internal" href="#accessCeramics.works.models.Technique" title="accessCeramics.works.models.Technique"><code class="xref py py-class docutils literal notranslate"><span class="pre">Technique</span></code></a> associated with the work</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.temperatures">
+<code class="descname">temperatures</code><a class="headerlink" href="#accessCeramics.works.models.Work.temperatures" title="Permalink to this definition">¶</a></dt>
+<dd><p>one or many <a class="reference internal" href="#accessCeramics.works.models.Temperature" title="accessCeramics.works.models.Temperature"><code class="xref py py-class docutils literal notranslate"><span class="pre">Temperature</span></code></a> associated with the work</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.title">
+<code class="descname">title</code><a class="headerlink" href="#accessCeramics.works.models.Work.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>title of the work, maximum 500 characters, required</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.width">
+<code class="descname">width</code><a class="headerlink" href="#accessCeramics.works.models.Work.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">measurement.measures.Distance</span></code> representing the width of the work</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.Work.work_types">
+<code class="descname">work_types</code><a class="headerlink" href="#accessCeramics.works.models.Work.work_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>one or many <a class="reference internal" href="#accessCeramics.works.models.WorkType" title="accessCeramics.works.models.WorkType"><code class="xref py py-class docutils literal notranslate"><span class="pre">WorkType</span></code></a> associated with the work</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="accessCeramics.works.models.WorkType">
+<em class="property">class </em><code class="descclassname">accessCeramics.works.models.</code><code class="descname">WorkType</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/models.html#WorkType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.models.WorkType" title="Permalink to this definition">¶</a></dt>
+<dd><p>The type or function of a work, e.g. “vase”.</p>
+<dl class="exception">
+<dt id="accessCeramics.works.models.WorkType.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#accessCeramics.works.models.WorkType.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="accessCeramics.works.models.WorkType.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#accessCeramics.works.models.WorkType.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.WorkType.name">
+<code class="descname">name</code><a class="headerlink" href="#accessCeramics.works.models.WorkType.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>name of the work type</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-accessCeramics.works.views">
+<span id="views"></span><h2>Views<a class="headerlink" href="#module-accessCeramics.works.views" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="forms">
+<h2>Forms<a class="headerlink" href="#forms" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="manage-commands">
+<h2>Manage Commands<a class="headerlink" href="#manage-commands" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-accessCeramics.works.management.commands.import_works">
+<span id="works-import"></span><h3>Works Import<a class="headerlink" href="#module-accessCeramics.works.management.commands.import_works" title="Permalink to this headline">¶</a></h3>
+<p>This script will load a JSON-format file containing accessCeramics records
+into the database. It expects the file to contain an array of objects with
+keys corresponding to the field names of the Work model. Multivalued fields
+should be represented as arrays of strings. Measurement fields should be
+represented as floating point values in inches. Empty fields should use the
+JSON value <cite>none</cite>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="architecture.html" class="btn btn-neutral" title="Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Watzek Library Digital Initiatives.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

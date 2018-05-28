@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>accessCeramics.works.models &mdash; accessCeramics 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> accessCeramics
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../codedocs.html">Code Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">accessCeramics</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>accessCeramics.works.models</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for accessCeramics.works.models</h1><div class="highlight"><pre>
+<span></span><span class="c1"># coding=utf8</span>
+
+<span class="kn">from</span> <span class="nn">django.conf</span> <span class="k">import</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">django.db</span> <span class="k">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="k">import</span> <span class="n">gettext_lazy</span> <span class="k">as</span> <span class="n">_</span>
+<span class="kn">from</span> <span class="nn">django_measurement.models</span> <span class="k">import</span> <span class="n">MeasurementField</span>
+<span class="kn">from</span> <span class="nn">measurement.measures</span> <span class="k">import</span> <span class="n">Distance</span>
+<span class="kn">from</span> <span class="nn">measurement.measures</span> <span class="k">import</span> <span class="n">Temperature</span> <span class="k">as</span> <span class="n">TemperatureMeasure</span>
+
+
+<div class="viewcode-block" id="Work"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.models.Work">[docs]</a><span class="k">class</span> <span class="nc">Work</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;A creative work exhibited in accessCeramics.&#39;&#39;&#39;</span>
+    <span class="c1">#: list of available units for height/width/depth measurements</span>
+    <span class="n">DISTANCE_CHOICES</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;cm&#39;</span><span class="p">,</span> <span class="s1">&#39;cm&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;in&#39;</span><span class="p">,</span> <span class="s1">&#39;in&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;ft&#39;</span><span class="p">,</span> <span class="s1">&#39;ft&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+    
+    <span class="c1">#: title of the work, maximum 500 characters, required</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+                             <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;500 characters maximum.&#39;</span><span class="p">))</span>
+    <span class="c1">#: usernames of accessCeramics users who created the work, required</span>
+    <span class="n">creators</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span>
+        <span class="n">settings</span><span class="o">.</span><span class="n">AUTH_USER_MODEL</span><span class="p">,</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;Must be an extant accessCeramics user.&#39;</span><span class="p">))</span>
+    <span class="c1">#: date associated with the work, YYYY format, required</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">PositiveSmallIntegerField</span><span class="p">(</span><span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;Use YYYY format.&#39;</span><span class="p">))</span>
+    <span class="c1">#: timestamp when work was created in the database</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1">#: timestamp when work was last modified in the database</span>
+    <span class="n">modified_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1">#: description of the work or artist&#39;s statement</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span>
+        <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;A description of the work or artist</span><span class="se">\&#39;</span><span class="s1">s statement.&#39;</span><span class="p">))</span>
+    <span class="c1">#: credit line for the work</span>
+    <span class="n">credits</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span>
+        <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;Credit line, e.g. for photographing the work.&#39;</span><span class="p">))</span>
+    <span class="c1">#: one or many :class:`Technique` associated with the work</span>
+    <span class="n">techniques</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="s1">&#39;Technique&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1">#: one or many :class:`Material` associated with the work</span>
+    <span class="n">materials</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="s1">&#39;Material&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1">#: one or many :class:`WorkType` associated with the work</span>
+    <span class="n">work_types</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="s1">&#39;WorkType&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1">#: one or many :class:`Temperature` associated with the work</span>
+    <span class="n">temperatures</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="s1">&#39;Temperature&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1">#: a :class:`measurement.measures.Distance` representing the height of the work</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">MeasurementField</span><span class="p">(</span><span class="n">measurement</span><span class="o">=</span><span class="n">Distance</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                              <span class="n">unit_choices</span><span class="o">=</span><span class="n">DISTANCE_CHOICES</span><span class="p">)</span>
+    <span class="c1">#: a :class:`measurement.measures.Distance` representing the width of the work</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="n">MeasurementField</span><span class="p">(</span><span class="n">measurement</span><span class="o">=</span><span class="n">Distance</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                             <span class="n">unit_choices</span><span class="o">=</span><span class="n">DISTANCE_CHOICES</span><span class="p">)</span>
+    <span class="c1">#: a :class:`measurement.measures.Distance` representing the depth of the work</span>
+    <span class="n">depth</span> <span class="o">=</span> <span class="n">MeasurementField</span><span class="p">(</span><span class="n">measurement</span><span class="o">=</span><span class="n">Distance</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                             <span class="n">unit_choices</span><span class="o">=</span><span class="n">DISTANCE_CHOICES</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#: default string representation. uses :attr:`title`.</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span></div>
+
+
+<div class="viewcode-block" id="Technique"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.models.Technique">[docs]</a><span class="k">class</span> <span class="nc">Technique</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;An artistic technique used in the making of a work.&#39;&#39;&#39;</span>
+    <span class="c1">#: name of the technique</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#: default string representation. uses :attr:`name`</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span></div>
+
+
+<div class="viewcode-block" id="Material"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.models.Material">[docs]</a><span class="k">class</span> <span class="nc">Material</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;A material used to make a work.&#39;&#39;&#39;</span>
+    <span class="c1">#: name of the material</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#: default string representation. uses :attr:`name`</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span></div>
+
+
+<div class="viewcode-block" id="WorkType"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.models.WorkType">[docs]</a><span class="k">class</span> <span class="nc">WorkType</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;The type or function of a work, e.g. &quot;vase&quot;.&#39;&#39;&#39;</span>
+    <span class="c1">#: name of the work type</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#: default string representation. uses :attr:`name`</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span></div>
+
+
+<div class="viewcode-block" id="Temperature"><a class="viewcode-back" href="../../../codedocs.html#accessCeramics.works.models.Temperature">[docs]</a><span class="k">class</span> <span class="nc">Temperature</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Previous temperature of the work, e.g. when fired in a kiln.&#39;&#39;&#39;</span>
+    <span class="c1">#: a :class:`measurement.measures.Temperature` of the work</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">MeasurementField</span><span class="p">(</span><span class="n">measurement</span><span class="o">=</span><span class="n">TemperatureMeasure</span><span class="p">)</span>
+
+    <span class="n">CONE_VALUES</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;022&#39;</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span>
+        <span class="s1">&#39;021&#39;</span><span class="p">:</span> <span class="mi">614</span><span class="p">,</span>
+        <span class="s1">&#39;020&#39;</span><span class="p">:</span> <span class="mi">635</span><span class="p">,</span>
+        <span class="s1">&#39;019&#39;</span><span class="p">:</span> <span class="mi">683</span><span class="p">,</span>
+        <span class="s1">&#39;018&#39;</span><span class="p">:</span> <span class="mi">717</span><span class="p">,</span>
+        <span class="s1">&#39;017&#39;</span><span class="p">:</span> <span class="mi">747</span><span class="p">,</span>
+        <span class="s1">&#39;016&#39;</span><span class="p">:</span> <span class="mi">792</span><span class="p">,</span>
+        <span class="s1">&#39;015&#39;</span><span class="p">:</span> <span class="mi">804</span><span class="p">,</span>
+        <span class="s1">&#39;014&#39;</span><span class="p">:</span> <span class="mi">838</span><span class="p">,</span>
+        <span class="s1">&#39;013&#39;</span><span class="p">:</span> <span class="mi">852</span><span class="p">,</span>
+        <span class="s1">&#39;012&#39;</span><span class="p">:</span> <span class="mi">884</span><span class="p">,</span>
+        <span class="s1">&#39;011&#39;</span><span class="p">:</span> <span class="mi">894</span><span class="p">,</span>
+        <span class="s1">&#39;010&#39;</span><span class="p">:</span> <span class="mi">900</span><span class="p">,</span>
+        <span class="s1">&#39;09&#39;</span><span class="p">:</span> <span class="mi">923</span><span class="p">,</span>
+        <span class="s1">&#39;08&#39;</span><span class="p">:</span> <span class="mi">955</span><span class="p">,</span>
+        <span class="s1">&#39;07&#39;</span><span class="p">:</span> <span class="mi">984</span><span class="p">,</span>
+        <span class="s1">&#39;06&#39;</span><span class="p">:</span> <span class="mi">999</span><span class="p">,</span>
+        <span class="s1">&#39;05&#39;</span><span class="p">:</span> <span class="mi">1046</span><span class="p">,</span>
+        <span class="s1">&#39;04&#39;</span><span class="p">:</span> <span class="mi">1060</span><span class="p">,</span>
+        <span class="s1">&#39;03½&#39;</span><span class="p">:</span> <span class="mi">1080</span><span class="p">,</span>
+        <span class="s1">&#39;03&#39;</span><span class="p">:</span> <span class="mi">1101</span><span class="p">,</span>
+        <span class="s1">&#39;02&#39;</span><span class="p">:</span> <span class="mi">1120</span><span class="p">,</span>
+        <span class="s1">&#39;01&#39;</span><span class="p">:</span> <span class="mi">1137</span><span class="p">,</span>
+        <span class="s1">&#39;1&#39;</span><span class="p">:</span> <span class="mi">1154</span><span class="p">,</span>
+        <span class="s1">&#39;2&#39;</span><span class="p">:</span> <span class="mi">1162</span><span class="p">,</span>
+        <span class="s1">&#39;3&#39;</span><span class="p">:</span> <span class="mi">1168</span><span class="p">,</span>
+        <span class="s1">&#39;4&#39;</span><span class="p">:</span> <span class="mi">1186</span><span class="p">,</span>
+        <span class="s1">&#39;5&#39;</span><span class="p">:</span> <span class="mi">1196</span><span class="p">,</span>
+        <span class="s1">&#39;6&#39;</span><span class="p">:</span> <span class="mi">1222</span><span class="p">,</span>
+        <span class="s1">&#39;7&#39;</span><span class="p">:</span> <span class="mi">1240</span><span class="p">,</span>
+        <span class="s1">&#39;8&#39;</span><span class="p">:</span> <span class="mi">1263</span><span class="p">,</span>
+        <span class="s1">&#39;9&#39;</span><span class="p">:</span> <span class="mi">1280</span><span class="p">,</span>
+        <span class="s1">&#39;10&#39;</span><span class="p">:</span> <span class="mi">1305</span><span class="p">,</span>
+        <span class="s1">&#39;11&#39;</span><span class="p">:</span> <span class="mi">1315</span><span class="p">,</span>
+        <span class="s1">&#39;12&#39;</span><span class="p">:</span> <span class="mi">1326</span><span class="p">,</span>
+        <span class="s1">&#39;13&#39;</span><span class="p">:</span> <span class="mi">1246</span>
+    <span class="p">}</span>
+
+    <span class="c1"># @property</span>
+    <span class="c1"># def cone_value(self):</span>
+    <span class="c1">#     &#39;&#39;&#39;use list bisection to find the closest matching cone value.&#39;&#39;&#39;</span>
+    <span class="c1">#     cones = CONE_VALUES.keys()</span>
+    <span class="c1">#     index = bisect_left(cones, temperature)</span>
+    <span class="c1">#     if index == 0:</span>
+    <span class="c1">#         return cones[0]</span>
+    <span class="c1">#     if index == len(cones):</span>
+    <span class="c1">#         return cones[-1]</span>
+    <span class="c1">#     before = cones[index-1]</span>
+    <span class="c1">#     after = cones[index]</span>
+    <span class="c1">#     if after - temperature &lt; temperature - before:</span>
+    <span class="c1">#         return after</span>
+    <span class="c1">#     return before</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#: default string representation. uses :attr:`value`</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Watzek Library Digital Initiatives.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

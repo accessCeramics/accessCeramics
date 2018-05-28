@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to accessCeramics’s documentation! &mdash; accessCeramics 0.1.0 documentation</title>
+  <title>Architecture &mdash; accessCeramics 0.1.0 documentation</title>
   
 
   
@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Architecture" href="architecture.html" /> 
+    <link rel="prev" title="Welcome to accessCeramics’s documentation!" href="index.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -48,7 +48,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> accessCeramics
+            <a href="index.html" class="icon icon-home"> accessCeramics
           
 
           
@@ -83,9 +83,15 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="codedocs.html">Code Documentation</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#database">Database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initial-schema-release-0-1">Initial Schema (Release 0.1)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#solr">Solr</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -100,7 +106,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">accessCeramics</a>
+          <a href="index.html">accessCeramics</a>
         
       </nav>
 
@@ -129,15 +135,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Welcome to accessCeramics’s documentation!</li>
+      <li>Architecture</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/architecture.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -150,33 +156,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-accessceramics-s-documentation">
-<h1>Welcome to accessCeramics’s documentation!<a class="headerlink" href="#welcome-to-accessceramics-s-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="architecture">
+<h1>Architecture<a class="headerlink" href="#architecture" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#database">Database</a></li>
-<li class="toctree-l2"><a class="reference internal" href="architecture.html#solr">Solr</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="codedocs.html">Code Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="codedocs.html#module-accessCeramics.works.models">Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="codedocs.html#module-accessCeramics.works.views">Views</a></li>
-<li class="toctree-l2"><a class="reference internal" href="codedocs.html#forms">Forms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="codedocs.html#manage-commands">Manage Commands</a></li>
-</ul>
-</li>
-</ul>
+</div>
+<p>The accessCeramics Django app will use a SQL database to provide administrative
+functionality for collections of ceramic Works and Images associated with those
+works. It will use a Solr index to provide rich search and browse capability for
+the collections.</p>
+<div class="section" id="database">
+<h2>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="initial-schema-release-0-1">
+<h3>Initial Schema (Release 0.1)<a class="headerlink" href="#initial-schema-release-0-1" title="Permalink to this headline">¶</a></h3>
+<p>[schema diagram coming soon]</p>
+<p>As of version 0.1, accessCeramics will basically be a stock Django
+application with a few database tables to track imported Ceramic Works.</p>
 </div>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
-</ul>
+<div class="section" id="solr">
+<h2>Solr<a class="headerlink" href="#solr" title="Permalink to this headline">¶</a></h2>
+<p>Solr support will be added in an upcoming release.</p>
+</div>
 </div>
 
 
@@ -187,8 +187,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="architecture.html" class="btn btn-neutral float-right" title="Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="index.html" class="btn btn-neutral" title="Welcome to accessCeramics’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

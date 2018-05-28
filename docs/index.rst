@@ -10,7 +10,8 @@ Welcome to accessCeramics's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   architecture
+   codedocs
 
 Indices and tables
 ==================
