@@ -3,10 +3,11 @@
 [![Coverage Status](https://codecov.io/gh/accessCeramics/accessCeramics/branch/master/graph/badge.svg)](https://codecov.io/gh/accessCeramics/accessCeramics)
 [![Requirements Status](https://requires.io/github/accessCeramics/accessCeramics/requirements.svg?branch=master)](https://requires.io/github/accessCeramics/accessCeramics/requirements/?branch=master)
 [![Code Health](https://landscape.io/github/accessCeramics/accessCeramics/master/landscape.svg?style=flat)](https://landscape.io/github/accessCeramics/accessCeramics/master)
+[![Documentation Status](https://readthedocs.org/projects/accessceramics/badge/?version=latest)](https://accessceramics.readthedocs.io/en/latest/?badge=latest)
 
 [accessCeramics](http://accessceramics.org) is a growing collection of contemporary ceramics images by recognized artists enhancing ceramics education worldwide.
 
-The current version is built using [django](), with source code hosted on [GitHub](https://github.com/accessCeramics/accessCeramics). You can also view the [code documentation](https://accessceramics.github.io/accessCeramics).
+The current version is built using [django](), with source code hosted on [GitHub](https://github.com/accessCeramics/accessCeramics). You can also view the [code documentation](http://accessceramics.readthedocs.io/).
 
 ## Developing
 
@@ -65,10 +66,10 @@ To generate documentation:
 ```
 2. Build documentation using the `Makefile`:
 ```sh
-$ make docs
+$ cd docs
+$ make html
 ```
-Documentation source files are in the `docs-src` folder. Built documentation
-lives in the `docs` folder on master to be served via GitHub pages.
+Docs are hosted by [Read the Docs](https://readthedocs.org/) and automatically updated on a push to master.
 
 ### License
 This project is licensed under the [Apache 2.0 License](https://github.com/accessCeramics/accessCeramics/blob/master/LICENSE).
