@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>accessCeramics.works.models &mdash; accessCeramics 0.1.0 documentation</title>
+  <title>accessCeramics.works.models &mdash; accessCeramics 0.1.0-dev documentation</title>
   
 
   
@@ -57,7 +57,7 @@
             
             
               <div class="version">
-                0.1.0
+                0.1.0-dev
               </div>
             
           
@@ -186,9 +186,9 @@
         <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;A description of the work or artist</span><span class="se">\&#39;</span><span class="s1">s statement.&#39;</span><span class="p">))</span>
     <span class="c1">#: credit line for the work</span>
-    <span class="n">credits</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span>
-        <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;Credit line, e.g. for photographing the work.&#39;</span><span class="p">))</span>
+    <span class="n">credit</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span>
+        <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;Credit line, e.g. for photographing the work. 500 characters maximum.&#39;</span><span class="p">))</span>
     <span class="c1">#: one or many :class:`Technique` associated with the work</span>
     <span class="n">techniques</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="s1">&#39;Technique&#39;</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="c1">#: one or many :class:`Material` associated with the work</span>
@@ -338,7 +338,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'0.1.0',
+            VERSION:'0.1.0-dev',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
