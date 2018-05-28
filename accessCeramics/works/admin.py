@@ -15,7 +15,7 @@ class WorkAdmin(admin.ModelAdmin):
             'fields': ('height', 'width', 'depth')
         }),
         ('Additional Metadata', {
-            'fields': ('description', 'credits')
+            'fields': ('description', 'credit')
         })
     )
     search_fields = ['title', 'creators__last_name']

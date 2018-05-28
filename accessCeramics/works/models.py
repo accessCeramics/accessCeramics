@@ -36,9 +36,9 @@ class Work(models.Model):
         null=True, blank=True,
         help_text=_('A description of the work or artist\'s statement.'))
     #: credit line for the work
-    credits = models.TextField(
-        null=True, blank=True,
-        help_text=_('Credit line, e.g. for photographing the work.'))
+    credit = models.CharField(
+        null=True, blank=True, max_length=500,
+        help_text=_('Credit line, e.g. for photographing the work. 500 characters maximum.'))
     #: one or many :class:`Technique` associated with the work
     techniques = models.ManyToManyField('Technique', blank=True)
     #: one or many :class:`Material` associated with the work
