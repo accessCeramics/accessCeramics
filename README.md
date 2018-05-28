@@ -4,6 +4,7 @@
 [![Requirements Status](https://requires.io/github/accessCeramics/accessCeramics/requirements.svg?branch=master)](https://requires.io/github/accessCeramics/accessCeramics/requirements/?branch=master)
 [![Code Health](https://landscape.io/github/accessCeramics/accessCeramics/master/landscape.svg?style=flat)](https://landscape.io/github/accessCeramics/accessCeramics/master)
 [![Documentation Status](https://readthedocs.org/projects/accessceramics/badge/?version=latest)](https://accessceramics.readthedocs.io/en/latest/?badge=latest)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 [accessCeramics](http://accessceramics.org) is a growing collection of contemporary ceramics images by recognized artists enhancing ceramics education worldwide.
 
