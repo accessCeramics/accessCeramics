@@ -182,7 +182,29 @@
 <dl class="attribute">
 <dt id="accessCeramics.works.models.Material.name">
 <code class="descname">name</code><a class="headerlink" href="#accessCeramics.works.models.Material.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>name of the material</p>
+<dd><p>name of the material - max 100 characters</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="accessCeramics.works.models.PyrometricCone">
+<em class="property">class </em><code class="descclassname">accessCeramics.works.models.</code><code class="descname">PyrometricCone</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/models.html#PyrometricCone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.models.PyrometricCone" title="Permalink to this definition">¶</a></dt>
+<dd><p>A pyrometric cone used to fire a ceramic work.</p>
+<dl class="exception">
+<dt id="accessCeramics.works.models.PyrometricCone.DoesNotExist">
+<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#accessCeramics.works.models.PyrometricCone.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="exception">
+<dt id="accessCeramics.works.models.PyrometricCone.MultipleObjectsReturned">
+<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#accessCeramics.works.models.PyrometricCone.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="accessCeramics.works.models.PyrometricCone.number">
+<code class="descname">number</code><a class="headerlink" href="#accessCeramics.works.models.PyrometricCone.number" title="Permalink to this definition">¶</a></dt>
+<dd><p>cone number - max 4 characters</p>
 </dd></dl>
 
 </dd></dl>
@@ -204,29 +226,7 @@
 <dl class="attribute">
 <dt id="accessCeramics.works.models.Technique.name">
 <code class="descname">name</code><a class="headerlink" href="#accessCeramics.works.models.Technique.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>name of the technique</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="accessCeramics.works.models.Temperature">
-<em class="property">class </em><code class="descclassname">accessCeramics.works.models.</code><code class="descname">Temperature</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/models.html#Temperature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.models.Temperature" title="Permalink to this definition">¶</a></dt>
-<dd><p>Previous temperature of the work, e.g. when fired in a kiln.</p>
-<dl class="exception">
-<dt id="accessCeramics.works.models.Temperature.DoesNotExist">
-<em class="property">exception </em><code class="descname">DoesNotExist</code><a class="headerlink" href="#accessCeramics.works.models.Temperature.DoesNotExist" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="exception">
-<dt id="accessCeramics.works.models.Temperature.MultipleObjectsReturned">
-<em class="property">exception </em><code class="descname">MultipleObjectsReturned</code><a class="headerlink" href="#accessCeramics.works.models.Temperature.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="accessCeramics.works.models.Temperature.value">
-<code class="descname">value</code><a class="headerlink" href="#accessCeramics.works.models.Temperature.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">measurement.measures.Temperature</span></code> of the work</p>
+<dd><p>name of the technique - max 100 characters</p>
 </dd></dl>
 
 </dd></dl>
@@ -236,8 +236,8 @@
 <em class="property">class </em><code class="descclassname">accessCeramics.works.models.</code><code class="descname">Work</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/accessCeramics/works/models.html#Work"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#accessCeramics.works.models.Work" title="Permalink to this definition">¶</a></dt>
 <dd><p>A creative work exhibited in accessCeramics.</p>
 <dl class="attribute">
-<dt id="accessCeramics.works.models.Work.DISTANCE_CHOICES">
-<code class="descname">DISTANCE_CHOICES</code><em class="property"> = (('m', 'm'), ('cm', 'cm'), ('in', 'in'), ('ft', 'ft'))</em><a class="headerlink" href="#accessCeramics.works.models.Work.DISTANCE_CHOICES" title="Permalink to this definition">¶</a></dt>
+<dt id="accessCeramics.works.models.Work.DISTANCE_UNITS">
+<code class="descname">DISTANCE_UNITS</code><em class="property"> = (('m', 'm'), ('cm', 'cm'), ('in', 'in'), ('ft', 'ft'))</em><a class="headerlink" href="#accessCeramics.works.models.Work.DISTANCE_UNITS" title="Permalink to this definition">¶</a></dt>
 <dd><p>list of available units for height/width/depth measurements</p>
 </dd></dl>
 
@@ -252,6 +252,12 @@
 <dd></dd></dl>
 
 <dl class="attribute">
+<dt id="accessCeramics.works.models.Work.TEMP_UNITS">
+<code class="descname">TEMP_UNITS</code><em class="property"> = (('c', 'c'), ('f', 'f'))</em><a class="headerlink" href="#accessCeramics.works.models.Work.TEMP_UNITS" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of available units for temperature measurements</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="accessCeramics.works.models.Work.created_at">
 <code class="descname">created_at</code><a class="headerlink" href="#accessCeramics.works.models.Work.created_at" title="Permalink to this definition">¶</a></dt>
 <dd><p>timestamp when work was created in the database</p>
@@ -264,12 +270,6 @@
 </dd></dl>
 
 <dl class="attribute">
-<dt id="accessCeramics.works.models.Work.credit">
-<code class="descname">credit</code><a class="headerlink" href="#accessCeramics.works.models.Work.credit" title="Permalink to this definition">¶</a></dt>
-<dd><p>credit line for the work</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="accessCeramics.works.models.Work.date">
 <code class="descname">date</code><a class="headerlink" href="#accessCeramics.works.models.Work.date" title="Permalink to this definition">¶</a></dt>
 <dd><p>date associated with the work, YYYY format, required</p>
@@ -278,7 +278,7 @@
 <dl class="attribute">
 <dt id="accessCeramics.works.models.Work.depth">
 <code class="descname">depth</code><a class="headerlink" href="#accessCeramics.works.models.Work.depth" title="Permalink to this definition">¶</a></dt>
-<dd><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">measurement.measures.Distance</span></code> representing the depth of the work</p>
+<dd><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">measurement.measures.Distance</span></code> for the depth of the work</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -288,15 +288,21 @@
 </dd></dl>
 
 <dl class="attribute">
+<dt id="accessCeramics.works.models.Work.firing_temperature">
+<code class="descname">firing_temperature</code><a class="headerlink" href="#accessCeramics.works.models.Work.firing_temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">measurement.measures.Temperature</span></code> at which the work was fired</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="accessCeramics.works.models.Work.height">
 <code class="descname">height</code><a class="headerlink" href="#accessCeramics.works.models.Work.height" title="Permalink to this definition">¶</a></dt>
-<dd><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">measurement.measures.Distance</span></code> representing the height of the work</p>
+<dd><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">measurement.measures.Distance</span></code> for the height of the work</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="accessCeramics.works.models.Work.materials">
 <code class="descname">materials</code><a class="headerlink" href="#accessCeramics.works.models.Work.materials" title="Permalink to this definition">¶</a></dt>
-<dd><p>one or many <a class="reference internal" href="#accessCeramics.works.models.Material" title="accessCeramics.works.models.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">Material</span></code></a> associated with the work</p>
+<dd><p>one or many <a class="reference internal" href="#accessCeramics.works.models.Material" title="accessCeramics.works.models.Material"><code class="xref py py-class docutils literal notranslate"><span class="pre">Material</span></code></a> used to make the work</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -306,15 +312,15 @@
 </dd></dl>
 
 <dl class="attribute">
-<dt id="accessCeramics.works.models.Work.techniques">
-<code class="descname">techniques</code><a class="headerlink" href="#accessCeramics.works.models.Work.techniques" title="Permalink to this definition">¶</a></dt>
-<dd><p>one or many <a class="reference internal" href="#accessCeramics.works.models.Technique" title="accessCeramics.works.models.Technique"><code class="xref py py-class docutils literal notranslate"><span class="pre">Technique</span></code></a> associated with the work</p>
+<dt id="accessCeramics.works.models.Work.pyrometric_cones">
+<code class="descname">pyrometric_cones</code><a class="headerlink" href="#accessCeramics.works.models.Work.pyrometric_cones" title="Permalink to this definition">¶</a></dt>
+<dd><p>one or many <a class="reference internal" href="#accessCeramics.works.models.PyrometricCone" title="accessCeramics.works.models.PyrometricCone"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyrometricCone</span></code></a> used to fire the work</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="accessCeramics.works.models.Work.temperatures">
-<code class="descname">temperatures</code><a class="headerlink" href="#accessCeramics.works.models.Work.temperatures" title="Permalink to this definition">¶</a></dt>
-<dd><p>one or many <a class="reference internal" href="#accessCeramics.works.models.Temperature" title="accessCeramics.works.models.Temperature"><code class="xref py py-class docutils literal notranslate"><span class="pre">Temperature</span></code></a> associated with the work</p>
+<dt id="accessCeramics.works.models.Work.techniques">
+<code class="descname">techniques</code><a class="headerlink" href="#accessCeramics.works.models.Work.techniques" title="Permalink to this definition">¶</a></dt>
+<dd><p>one or many <a class="reference internal" href="#accessCeramics.works.models.Technique" title="accessCeramics.works.models.Technique"><code class="xref py py-class docutils literal notranslate"><span class="pre">Technique</span></code></a> used to make the work</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -326,13 +332,13 @@
 <dl class="attribute">
 <dt id="accessCeramics.works.models.Work.width">
 <code class="descname">width</code><a class="headerlink" href="#accessCeramics.works.models.Work.width" title="Permalink to this definition">¶</a></dt>
-<dd><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">measurement.measures.Distance</span></code> representing the width of the work</p>
+<dd><p>a <code class="xref py py-class docutils literal notranslate"><span class="pre">measurement.measures.Distance</span></code> for the width of the work</p>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="accessCeramics.works.models.Work.work_types">
 <code class="descname">work_types</code><a class="headerlink" href="#accessCeramics.works.models.Work.work_types" title="Permalink to this definition">¶</a></dt>
-<dd><p>one or many <a class="reference internal" href="#accessCeramics.works.models.WorkType" title="accessCeramics.works.models.WorkType"><code class="xref py py-class docutils literal notranslate"><span class="pre">WorkType</span></code></a> associated with the work</p>
+<dd><p>one or many <a class="reference internal" href="#accessCeramics.works.models.WorkType" title="accessCeramics.works.models.WorkType"><code class="xref py py-class docutils literal notranslate"><span class="pre">WorkType</span></code></a> describing the work</p>
 </dd></dl>
 
 </dd></dl>
@@ -354,7 +360,7 @@
 <dl class="attribute">
 <dt id="accessCeramics.works.models.WorkType.name">
 <code class="descname">name</code><a class="headerlink" href="#accessCeramics.works.models.WorkType.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>name of the work type</p>
+<dd><p>name of the work type - max 100 characters</p>
 </dd></dl>
 
 </dd></dl>
