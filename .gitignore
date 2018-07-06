@@ -1,3 +1,6 @@
+# built docs
+docs/_build
+
 # pytest caches
 .pytest_cache
 

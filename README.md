@@ -55,22 +55,25 @@ Unit tests are written with [pytest](http://doc.pytest.org/). To run them:
 ```
 2. Run tests using `pytest`:
 ```sh
-(venv) $ pytest
+(venv) $ python -m pytest
 ```
 
 ### Documentation
-Documentation is generated using [sphinx](http://www.sphinx-doc.org/).
-To generate documentation:
+Docs are hosted by [Read the Docs](https://readthedocs.org/) and automatically 
+rebuilt on a push to master.
+
+Docs are generated using [sphinx](http://www.sphinx-doc.org/).
+
+To build a copy of the docs locally:
 1. Ensure development requirements are installed:
 ```sh
 (venv) $ pip install -r dev-requirements.txt
 ```
-2. Build documentation using the `Makefile`:
+2. Build docs using the `Makefile`:
 ```sh
 $ cd docs
 $ make html
 ```
-Docs are hosted by [Read the Docs](https://readthedocs.org/) and automatically updated on a push to master.
 
 ### License
 This project is licensed under the [Apache 2.0 License](https://github.com/accessCeramics/accessCeramics/blob/master/LICENSE).
