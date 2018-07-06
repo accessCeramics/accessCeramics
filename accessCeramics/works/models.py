@@ -47,6 +47,10 @@ class Work(models.Model):
     #: a :class:`measurement.measures.Temperature` at which the work was fired
     firing_temperature = MeasurementField(measurement=Temperature, null=True,
                                           blank=True, unit_choices=TEMP_UNITS)
+    #: a :class:`measurement.measures.Temperature` of a second firing, if any
+    second_firing_temperature = MeasurementField(measurement=Temperature,
+                                                 null=True, blank=True,
+                                                 unit_choices=TEMP_UNITS)
     #: a :class:`measurement.measures.Distance` for the height of the work
     height = MeasurementField(measurement=Distance, null=True, blank=True,
                               unit_choices=DISTANCE_UNITS)

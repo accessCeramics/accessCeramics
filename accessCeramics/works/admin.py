@@ -12,7 +12,8 @@ class WorkAdmin(admin.ModelAdmin):
             'fields': ('techniques', 'materials', 'work_types', 'pyrometric_cones')
         }),
         ('Measurements', {
-            'fields': ('height', 'width', 'depth', 'firing_temperature')
+            'fields': ('height', 'width', 'depth', 'firing_temperature',
+                       'second_firing_temperature')
         }),
         ('Additional Metadata', {
             'fields': ('description',)
@@ -28,7 +29,7 @@ class TechniqueAdmin(admin.ModelAdmin):
     ordering = ['name']
     search_fields = ['name']
 
-    
+
 class MaterialAdmin(admin.ModelAdmin):
     ordering = ['name']
     search_fields = ['name']
