@@ -8,7 +8,7 @@
 
 [accessCeramics](http://accessceramics.org) is a growing collection of contemporary ceramics images by recognized artists enhancing ceramics education worldwide.
 
-The current version is built using [django](), with source code hosted on [GitHub](https://github.com/accessCeramics/accessCeramics). You can also view the [code documentation](http://accessceramics.readthedocs.io/).
+The current version is built using [django](https://www.djangoproject.com/), with source code hosted on [GitHub](https://github.com/accessCeramics/accessCeramics). You can also view the [code documentation](http://accessceramics.readthedocs.io/).
 
 ## Developing
 
