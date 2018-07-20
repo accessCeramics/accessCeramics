@@ -1,2 +1,4 @@
 django
 django-measurement
+django-heroku
+gunicorn
