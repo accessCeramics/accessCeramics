@@ -6,8 +6,6 @@ install:
 - pip install -r requirements.txt
 - pip install -r dev-requirements.txt
 - pip install codecov
-- cp ci/settings.py accessCeramics/local_settings.py
-- python -c "import uuid; print('SECRET_KEY = \'%s\'' % uuid.uuid4())" >> accessCeramics/local_settings.py
 script:
 - pytest --cov=accessCeramics
 services:

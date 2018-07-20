@@ -8,3 +8,4 @@ sphinx
 sphinx-autobuild
 sphinx_rtd_theme
 doc8
+django-debug-toolbar
