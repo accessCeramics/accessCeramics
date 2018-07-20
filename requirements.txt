@@ -1,4 +1,5 @@
 django
 django-measurement
 django-heroku
+mysqlclient
 gunicorn
