@@ -9,7 +9,7 @@ from accessCeramics.settings.base import *
 
 
 # Generate a random secret key
-SECRET_KEY = uuid.uuid4()
+SECRET_KEY = str(uuid.uuid4())
 
 # Turn on debug output
 DEBUG = True
