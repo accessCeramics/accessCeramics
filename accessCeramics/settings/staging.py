@@ -9,7 +9,7 @@ from accessCeramics.settings.base import *
 
 
 # Secret key is set in Heroku environment variables
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # Turn off debug to mimic production
 DEBUG = False
@@ -18,11 +18,11 @@ DEBUG = False
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': os.getenv('JAWSDB_URL'),
-        'PORT': os.getenv('JAWSDB_PORT'),
-        'NAME': os.getenv('JAWSDB_NAME'),
-        'USER': os.getenv('JAWSDB_USER'),
-        'PASSWORD': os.getenv('JAWSDB_PASS'),
+        'HOST': os.environ['JAWSDB_URL'],
+        'PORT': os.environ['JAWSDB_PORT'],
+        'NAME': os.environ['JAWSDB_NAME'],
+        'USER': os.environ['JAWSDB_USER'],
+        'PASSWORD': os.environ['JAWSDB_PASS']
     },
 }
 
