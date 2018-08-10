@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     # other plugins
     'django_measurement',
     # accessceramics apps
-    'accessCeramics.works'
+    'accessCeramics.works',
+    'accessCeramics.people',
 ]
 
 MIDDLEWARE = [

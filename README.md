@@ -2,7 +2,6 @@
 [![Build Status](https://travis-ci.org/accessCeramics/accessCeramics.svg?branch=master)](https://travis-ci.org/accessCeramics/accessCeramics)
 [![Coverage Status](https://codecov.io/gh/accessCeramics/accessCeramics/branch/master/graph/badge.svg)](https://codecov.io/gh/accessCeramics/accessCeramics)
 [![Requirements Status](https://requires.io/github/accessCeramics/accessCeramics/requirements.svg?branch=master)](https://requires.io/github/accessCeramics/accessCeramics/requirements/?branch=master)
-[![Code Health](https://landscape.io/github/accessCeramics/accessCeramics/master/landscape.svg?style=flat)](https://landscape.io/github/accessCeramics/accessCeramics/master)
 [![Documentation Status](https://readthedocs.org/projects/accessceramics/badge/?version=latest)](https://accessceramics.readthedocs.io/en/latest/?badge=latest)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -17,6 +16,11 @@ contains the most recent release, and work in progress will be on the **develop*
 
 ### Setup
 
+You'll need a local MySQL database configured to match the settings in
+`accessCeramics/settings/local.py`. You can set the environment variables listed
+there for a custom setup, or use the `docker-compose.yml` file in this repo
+to run a local database with Docker.
+
 1. Clone the repository:
 ```sh
 $ git clone https://github.com/accessCeramics/accessCeramics.git
@@ -30,6 +34,7 @@ $ source venv/bin/activate
 3. Install dependencies with `pip`:
 ```sh
 (venv) $ pip install -r requirements.txt
+(venv) $ pip install -r dev-requirements.txt
 ```
 4. Run migrations to prepare the database:
 ```sh
@@ -49,11 +54,6 @@ the admin backend at <http://localhost:8000/admin>.
 ### Testing
 
 Unit tests are written with [pytest](http://doc.pytest.org/). To run them:
-1. Ensure development requirements are installed:
-```sh
-(venv) $ pip install -r dev-requirements.txt
-```
-2. Run tests using `pytest`:
 ```sh
 (venv) $ python -m pytest
 ```
@@ -64,12 +64,7 @@ rebuilt on a push to master.
 
 Docs are generated using [sphinx](http://www.sphinx-doc.org/).
 
-To build a copy of the docs locally:
-1. Ensure development requirements are installed:
-```sh
-(venv) $ pip install -r dev-requirements.txt
-```
-2. Build docs using the `Makefile`:
+To build a copy of the docs locally, use the `Makefile`:
 ```sh
 $ cd docs
 $ make html

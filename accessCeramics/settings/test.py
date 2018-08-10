@@ -1,3 +1,4 @@
+# pylint: disable=W0614, W0401
 """
 CI test settings for accessCeramics.
 """
@@ -21,7 +22,6 @@ DATABASES = {
         'NAME': 'test',
         'USER': 'root',
         'HOST': 'localhost',
-        'PORT': '',
         'TEST': {
             'CHARSET': 'utf8',
             'COLLATION': 'utf8_general_ci',
