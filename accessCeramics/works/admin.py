@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Material, Technique, Work, WorkType, PyrometricCone
+from .models import Material, Technique, Work, WorkType
 
 class WorkAdmin(admin.ModelAdmin):
     readonly_fields = ('created_at', 'modified_at')
@@ -20,9 +20,7 @@ class WorkAdmin(admin.ModelAdmin):
         })
     )
     search_fields = ['title', 'creators__last_name']
-    autocomplete_fields = ['creators', 'techniques', 'materials', 'work_types',
-                           'pyrometric_cones']
-    list_filter = ('date', 'created_at', 'modified_at')
+    autocomplete_fields = ['creators', 'techniques', 'materials', 'work_types']
 
 
 class TechniqueAdmin(admin.ModelAdmin):
@@ -40,13 +38,7 @@ class WorkTypeAdmin(admin.ModelAdmin):
     search_fields = ['name']
 
 
-class PyrometricConeAdmin(admin.ModelAdmin):
-    ordering = ['number']
-    search_fields = ['number']
-
-
 admin.site.register(Work, WorkAdmin)
 admin.site.register(Technique, TechniqueAdmin)
 admin.site.register(Material, MaterialAdmin)
 admin.site.register(WorkType, WorkTypeAdmin)
-admin.site.register(PyrometricCone, PyrometricConeAdmin)

@@ -1,6 +1,4 @@
-from django.contrib.auth.models import User
 from django.test import TestCase
-from measurement.measures import Distance, Temperature
 
 from accessCeramics.works.models import (Material, PyrometricCone, Technique,
                                          Work, WorkType)

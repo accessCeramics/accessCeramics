@@ -27,7 +27,7 @@ class Work(models.Model):
         settings.AUTH_USER_MODEL,
         help_text=_('Must be an extant accessCeramics user.'))
     #: date associated with the work, YYYY format, required
-    date = models.PositiveSmallIntegerField(help_text=_('Use YYYY format.'))
+    date = models.PositiveSmallIntegerField(help_text=_('YYYY format.'))
     #: timestamp when work was created in the database
     created_at = models.DateTimeField(auto_now_add=True)
     #: timestamp when work was last modified in the database
